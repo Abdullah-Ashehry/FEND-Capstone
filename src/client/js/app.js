@@ -88,6 +88,22 @@ const postData = async(url = "", data = {}) => {
 
 // Work in progress
 
+function createCard() {
+    container = document.createElement('div').classList.add('container');
+    card = document.createElement('div').classList.add('card');
+    card_header = document.createElement('h4').id('card_header');
+    card_header.innerHTML = `${city}, ${country}`;
+    image = document.createElement('img')
+    image.setAttribute('src', imgSrc);
+    card_title = document.createElement('h2').id('card_title');
+    card_title.innerHTML = date;
+
+
+}
+
+
+
+
 const updateUI = async() => {
     const req = await fetch("all");
     try {
