@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <div class="title">
+                <a>Travel Planner</a>
+            </div>
+            <button id="add_trip">
+                + Add A Trip
+            </button>
+        </header>
+        <div class="container">
+            <div id="add_trip_info">
+                <h2>New Trip Imformation</h2>
+                <p for="zip">Enter City here : </p>
+                <input type="text" id="city" placeholder="">
+                <p for="departing_date">Departing on : </p>
+                <input type="text" id="departure_date" placeholder="MM/DD/YYYY">
+                <button class="btn-ripple" id="save_trip">Save Trip</button>
+                <button class="btn-ripple" id="delete-trip">Delete Trip</button>
+            </div>
+        </div>
+    </div>
+    <h2>My Current Trips</h2>
+    <div class="container">
+        <div class="box">
+            <div class="container">
+                <div class="card">
+                    <h4 id="card_header"><b>Paris, France</b></h4>
+                    <!-- <img alt="paris"> -->
+                    <h2 id="card_title"><i>12-12-2012</i> </h2>
+                    <button id="save_trip">Save Trip</button>
+                    <button id="delete-trip">Delete Trip</button>
+                </div>
+            </div>
+        </div>
+        <footer class="footer">FEND Capstone Project</footer>
+    </div>
+    </div>
+</body>
+
+</html>
