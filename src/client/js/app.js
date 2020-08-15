@@ -148,18 +148,34 @@ document.querySelectorAll(".btn-ripple").forEach((button) => {
 
 // Display, Hide the container for adding new trips
 
-function showTrip(e) {
-    const container = document.getElementById("add_trip_info");
-    if (container.style.display === "none") {
-        container.remove.style.display;
-    } else {
-        container.style.display = "none";
-    }
-}
+// function showTrip(e) {
 
-document.getElementById("add_trip").addEventListener("click", showTrip());
+// }
+
+document.getElementById("add_trip").addEventListener("click", function(event) {
+    const container = document.getElementById("add_trip_info");
+    console.log(container.classList);
+    if (container.classList.contains('hide_class')) {
+        container.classList.remove('hide_class');
+    } else {
+        container.classList.add('hide_class');
+    }
+});
+
+// document.getElementById("add_trip").addEventListener("click", showTrip());
+
+// var clickedButton = document.getElementById('button_id');
+// closedDiv = document.getElementById('id_of_closed_div');
+// openedDiv = document.getElementById('add_trip_info ');
+// clickedButton.onclick = function() {
+//     if (closedDiv.style.display !== 'none') {
+//         openedDiv.style.display = 'block';
+//         closedDiv.style.display = 'none';
+//     }
+// };
+
 
 // Exporting Functions
 
-export { showTrip };
+// export { showTrip };
 export { onClick }

@@ -1,6 +1,6 @@
 // Setup empty JS object to act as endpoint for all routes
 
-temp = {};
+let temp = {};
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const path = require('path')
@@ -46,7 +46,7 @@ app.get('/all', function(request, response) {
     response.send(projectData);
 });
 
-app.post('/add', (req, res) => {
+app.post('/addTrip', (req, res) => {
     console.log(req.body)
     temp = {
         country: req.body.country,
