@@ -54,9 +54,9 @@ app.post('/userInput', (request, response) => {
     //     // tripLength = data.tripLength
     // }
     temp.city = data.city;
-    temp = entry;
-    console.log(entry);
-    res.send(true)
+    // temp = entry;
+    // console.log(entry);
+    response.send(true)
 })
 
 app.get('/getGeo', (request, response) => {
@@ -75,7 +75,7 @@ app.get('/getGeo', (request, response) => {
             response.send(true);
         })
         .catch(error => {
-            res.send(JSON.stringify({ error: error }));
+            response.send(JSON.stringify({ error: error }));
         })
 })
 
@@ -83,9 +83,9 @@ app.get('/getGeo', (request, response) => {
 
 app.get('/getWeatherBit', (request, response) => {
     console.log('getWeatherBit');
-    let data = request.body;
-    latitude = data[latitude];
-    longitude = data[longitude];
+    // let data = request.body;
+    // latitude = data[latitude];
+    // longitude = data[longitude];
     const weatherBitApiKey = "f0e0fd1fc3af481aac136783ebbb1894";
     const url = `https://api.weatherbit.io/v2.0/forecast/daily?lat=${temp.lat}&lon=${temp.lng}&key=${weatherBitApiKey}`;
     console.log(url);
@@ -98,10 +98,10 @@ app.get('/getWeatherBit', (request, response) => {
             temp.maxTemp = data.max_temp;
             temp.minTemp = data.min_temp;
 
-            res.send({ maxTemp: temp.MaxTemp, minTemp: temp.MinTemp });
+            response.send({ maxTemp: temp.MaxTemp, minTemp: temp.MinTemp });
         })
         .catch(error => {
-            res.send(JSON.stringify({ error: "An error occured" }));
+            response.send(JSON.stringify({ error: "An error occured" }));
         })
 })
 
@@ -116,11 +116,11 @@ app.get('/getPixabay', (request, response) => {
 
             console.log(res.data.hits[0].pageURL);
             temp.image = res.data.hits[0].pageURL;
-            res.send({ image: temp.image });
+            response.send({ image: temp.image });
 
         })
         .catch(error => {
-            res.send(JSON.stringify({ error: "An error has occured" }));
+            response.send(JSON.stringify({ error: "An error has occured" }));
         })
 })
 
