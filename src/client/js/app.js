@@ -120,8 +120,8 @@ function createCard(city, departureDate, returnDate, daysLength, minTemp, maxTem
     card = document.createElement('div').classList.add('card');
     card_header = document.createElement('h4').id('card_header');
     card_header.innerHTML = `${city}`;
-    image = document.createElement('img')
-    image.setAttribute('src', imgSrc);
+    image = document.createElement('img').id('pixabay_image');
+    image.setAttribute('src', image);
     card_title = document.createElement('h2').id('card_title');
     card_title.innerHTML = `From ${departureDate}, until ${returnDate } and the length of the trip is : ${daysLength}`;
     card_weather = document.createElement('p').id('card_weather');
