@@ -12,14 +12,14 @@ async function performAction(event) {
 
     const newCity = document.getElementById("city").value;
     const departure = document.getElementById("departure_date").value;
-    departureDate = new Date(departure);
+    let departureDate = new Date(departure);
     const returnD = document.getElementById("return_date").value;
-    returnDate = new Date(returnD);
+    let returnDate = new Date(returnD);
     const tripLength = returnDate.getTime() - departureDate.getTime();
     const daysLength = tripLength / (1000 * 60 * 60 * 24);
 
 
-    const coordiantesData = await getGeo('http:localhost:8080/getGeo');
+    const coordiantesData = await getGeo('http://localhost:8080/getGeo');
     const weatherData = await getWeather(`http://localhost:8080/getWeatherBit`, coordiantesData);
     let minTemp = weatherData[minTemp];
     let maxTemp = weatherData[maxTemp];
