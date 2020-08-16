@@ -3,120 +3,127 @@
 // Weatherbit API Setup
 // Create a new date instance dynamically with JS
 
-let d = new Date();
-let newDate = d.getMonth() + 1 + "." + d.getDate() + "." + d.getFullYear();
 
 document.getElementById("save_trip").addEventListener("click", performAction);
 
-function performAction(e) {
+function performAction(event) {
+    event.preventDefault();
+    console.log('In Perform Action');
+
     const newCity = document.getElementById("city").value;
-    const userName = "abady301";
-    getDataFromGeoNames(userName, newCity);
-    console
-        .log(getDataFromGeoNames)
-        .then(getWeatherFromWeatherbit(lat, lng))
-        .then(getPicFromPixabay(newCity))
-        .then(function(data) {
-            postData("/add", {});
-        });
+    const departureDate = document.getElementById("departure_date").value;
+    departureDate = newDate(departureDate);
+    const returnDate = document.getElementById("return_date").value;
+    returnDate = newDate(returnDate);
+    const tripLength = returnDate.getTime() - departureDate.getTime();
+    const daysLength = tripLength / (1000 * 60 * 60 * 24);
+
+
+    const coordiantesData = await getGeo('http:localhost:8080/getGeo');
+    const weatherData = await getWeather(`http://localhost:8080/getWeatherBit`, coordiantesData);
+    const imgData = await getImage(`http://localhost:8080/getPixabay`);
+    await postTrip('http://localhost:8080/addTrip', {
+        city: newCity,
+        departureDate: departureDate,
+        returnDate: returnDate,
+        tripLength: daysLength,
+        minTemp: weatherData[minTemp],
+        maxTemp: weatherData[maxTemp],
+        image: imgData
+    });
+    createCard()
+
+};
+
+// Posting the trip
+
+async function postTrip(url, tripData) {
+    const response = await fetch(url, {
+        method: 'POST',
+        mode: 'cors',
+        credentials: 'same-origin',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(tripData)
+    });
 }
 
-// GeoNames API
+// GeoLocationAPI
 
-const getDataFromGeoNames = async(username, city) => {
-    const url = `http://api.geonames.org/searchJSON?q=${city}&maxRows=1&username=${username}`;
-    try {
-        return await axios.get(url).then((res) => {
-            return {
-                lat: res.data.geonames[0].lat,
-                lng: res.data.geonames[0].lng,
-                countryName: res.data.geoname[0].countryName,
-            };
-        });
-    } catch (e) {
-        console.log(e);
-    }
-};
-
-// WeatherBit API
-
-const getWeatherFromWeatherbit = async(latitude, longitude) => {
-    const weatherBitApiKey = "f0e0fd1fc3af481aac136783ebbb1894";
-    const url = `https://api.weatherbit.io/v2.0/current?lat=${latitude}&lon=${longitude}&key=${weatherBitApiKey}`;
-    const res = await fetch(url);
-    try {
-        const data = await res.json();
-        console.log(res.data.temp);
-        return res.data.temp;
-    } catch (e) {
-        console.log(e);
-    }
-};
-
-// Pixabay API
-
-const getPicFromPixabay = async(city) => {
-    const pixabayApiKey = "17890716-25481aa580131a2d454b71ece";
-    const pixabayLink = `https://pixabay.com/api/?key=${pixabayApiKey}&?q=${city}`;
-    const res = await fetch(pixabayLink)
-    try {
-        const data = await res.json();
-        console.log(res.data.hits[0].pageURL);
-        return res.data.hits[0].pageURL;
-    } catch (e) {
-        console.log(e);
-    }
-};
-
-// Sending Data to be saved 
-
-const postData = async(url = "", data = {}) => {
-    const response = await fetch(url, {
-        method: "POST",
-        credentials: "same-origin",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+const getGeo = async(url) => {
+    const res = await fetch(url, {
+        method: 'GET',
+        mode: 'cors',
+        headers: {
+            'Content-Type': 'application/json;charset=utf-8'
+        }
     });
-
     try {
-        const newData = await response.json();
-        return newData;
-    } catch (error) {
-        console.log("error", error);
+        const data = await res.json();
+        return;
+
+    } catch (e) {
+        console.log(e);
     }
-};
+}
 
-// Work in progress
+// WeatherBitAPI
 
-function createCard() {
+const getWeather = async(url, coordiantesData) => {
+    const res = await fetch(url, {
+        method: 'GET',
+        mode: 'cors',
+        headers: {
+            'Content-Type': 'application/json:charset=utf-8'
+        },
+        body: {
+            json: JSON.stringify(coordiantesData)
+        }
+    });
+    try {
+        const data = await res.json();
+        console.log(`weather response: ${data}`)
+        return data;
+
+    } catch (e) {
+        console.log(e);
+    }
+}
+
+// PixabayAPI
+
+const getImage = async(url) => {
+    const res = await fetch(url, {
+        method: 'GET',
+        mode: 'cors',
+        headers: {
+            'Content-Type': 'application/json;charset=utf-8'
+        }
+    });
+    try {
+        const data = await res.json();
+        console.log(`ImageData: ${data}`);
+        return data;
+    } catch (e) {
+        console.log(e);
+    }
+}
+
+// Updating the UI by adding a card with all the information.
+
+function createCard(city, departureDate, returnDate, minTemp, maxTemp, image) {
     container = document.createElement('div').classList.add('container');
     card = document.createElement('div').classList.add('card');
     card_header = document.createElement('h4').id('card_header');
-    card_header.innerHTML = `${city}, ${country}`;
+    card_header.innerHTML = `${city}`;
     image = document.createElement('img')
     image.setAttribute('src', imgSrc);
     card_title = document.createElement('h2').id('card_title');
-    card_title.innerHTML = date;
-
-
+    card_title.innerHTML = `From ${departureDate}, until ${returnDate } `;
+    card_weather = document.createElement('p').id('card_weather');
+    card_weather.innerHTML = `The minimum temprature is : ${minTemp} and the maximum temprature will be : ${maxTemp}`;
 }
-
-
-
-
-const updateUI = async() => {
-    const req = await fetch("all");
-    try {
-        const projectData = await req.json();
-        console.log(projectData);
-        document.getElementById("temp").innerHTML = projectData.temp;
-        document.getElementById("date").innerHTML = projectData.date;
-        document.getElementById("content").innerHTML = projectData.userInput;
-        console.log("updateUI");
-    } catch (error) {
-        console.log("error", error);
-    }
-};
 
 // OnRipple Effect
 
@@ -148,34 +155,16 @@ document.querySelectorAll(".btn-ripple").forEach((button) => {
 
 // Display, Hide the container for adding new trips
 
-// function showTrip(e) {
-
-// }
-
 document.getElementById("add_trip").addEventListener("click", function(event) {
-    const container = document.getElementById("add_trip_info");
+    let container = document.getElementById("add_trip_info");
     console.log(container.classList);
     if (container.classList.contains('hide_class')) {
-        container.classList.remove('hide_class');
+        container.style.display == 'display:none';
+        container.classList.remove('hide_class')
     } else {
         container.classList.add('hide_class');
     }
 });
 
-// document.getElementById("add_trip").addEventListener("click", showTrip());
-
-// var clickedButton = document.getElementById('button_id');
-// closedDiv = document.getElementById('id_of_closed_div');
-// openedDiv = document.getElementById('add_trip_info ');
-// clickedButton.onclick = function() {
-//     if (closedDiv.style.display !== 'none') {
-//         openedDiv.style.display = 'block';
-//         closedDiv.style.display = 'none';
-//     }
-// };
-
-
-// Exporting Functions
-
-// export { showTrip };
 export { onClick }
+export { performAction }
