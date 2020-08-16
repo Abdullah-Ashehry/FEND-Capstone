@@ -11,19 +11,34 @@ async function performAction(event) {
     console.log('In Perform Action');
 
     const newCity = document.getElementById("city").value;
+    console.log(newCity);
     const departure = document.getElementById("departure_date").value;
     let departureDate = new Date(departure);
+    console.log(departureDate);
     const returnD = document.getElementById("return_date").value;
     let returnDate = new Date(returnD);
+    console.log(returnDate);
     const tripLength = returnDate.getTime() - departureDate.getTime();
     const daysLength = tripLength / (1000 * 60 * 60 * 24);
+    console.log(daysLength);
 
-
-    const coordiantesData = await getGeo('http://localhost:8080/getGeo');
-    const weatherData = await getWeather(`http://localhost:8080/getWeatherBit`, coordiantesData);
+    // const coordiantesData = await getGeo('http://localhost:8080/getGeo');
+    await postUserInput('http://localhost:8080/userInput', {
+        city: newCity,
+        departureDate: departureDate,
+        returnDate: returnDate,
+        daysLength: daysLength
+    });
+    console.log('afterpostUserInput')
+    await getGeo('http://localhost:8080/getGeo');
+    console.log('after getGEO');
+    const weatherData = await getWeather("http://localhost:8080/getWeatherBit");
     let minTemp = weatherData[minTemp];
+    console.log(minTemp);
     let maxTemp = weatherData[maxTemp];
+    console.log(maxTemp);
     const imgData = await getImage(`http://localhost:8080/getPixabay`);
+    console.log(imgData);
     let image = imgData;
     await postTrip('http://localhost:8080/addTrip', {
         city: newCity,
@@ -37,6 +52,23 @@ async function performAction(event) {
     createCard(newCity, departureDate, returnDate, daysLength, minTemp, maxTemp, image)
 
 };
+
+// UserInput to the server.
+async function postUserInput(url, userInput) {
+    console.log('inPostUserInput')
+
+    const response = await fetch(url, {
+        method: 'POST',
+        mode: 'cors',
+        credentials: 'same-origin',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(userInput)
+    });
+}
+
+
 
 // Posting the trip
 
@@ -55,6 +87,7 @@ async function postTrip(url, tripData) {
 // GeoLocationAPI
 
 const getGeo = async(url) => {
+    console.log('in GetGEO');
     const res = await fetch(url, {
         method: 'GET',
         mode: 'cors',
@@ -63,7 +96,7 @@ const getGeo = async(url) => {
         }
     });
     try {
-        const data = await res.json();
+        // const data = await res.json();
         return;
 
     } catch (e) {
@@ -73,16 +106,17 @@ const getGeo = async(url) => {
 
 // WeatherBitAPI
 
-const getWeather = async(url, coordiantesData) => {
+const getWeather = async(url) => {
+    console.log('in getWeather');
     const res = await fetch(url, {
         method: 'GET',
         mode: 'cors',
         headers: {
             'Content-Type': 'application/json:charset=utf-8'
-        },
-        body: {
-            json: JSON.stringify(coordiantesData)
         }
+        // body: {
+        // json: JSON.stringify(coordiantesData)
+        // }
     });
     try {
         const data = await res.json();

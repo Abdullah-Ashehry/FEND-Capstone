@@ -43,17 +43,19 @@ function listening() {
 }
 
 
-// app.get('/userInput', (request, response) => {
-//     let data = request.body;
-//     let entry = {
-//         city = data.city,
-//         departureDate = data.departureDate,
-//         returnDate = data.returnDate,
-//         tripLength = data.tripLength
-//     }
-//     temp = entry;
-//     console.log(entry);
-// })
+app.post('/userInput', (request, response) => {
+    console.log('serverPostUserInput')
+
+    let data = request.body;
+    let entry = {
+        city = data.city,
+        departureDate = data.departureDate,
+        returnDate = data.returnDate,
+        tripLength = data.tripLength
+    }
+    temp = entry;
+    console.log(entry);
+})
 
 app.get('/getGeo', (request, response) => {
     console.log('getGeo')
@@ -65,10 +67,10 @@ app.get('/getGeo', (request, response) => {
         .then(response => {
             console.log('Data From Geo[0]')
             console.log(res.data)
-            let lat = res.data.geonames[0].lat;
-            let lng = res.data.geonames[0].lng;
+            temp.lat = res.data.geonames[0].lat;
+            temp.lng = res.data.geonames[0].lng;
 
-            response.send(latitude = lat, longitude = lng);
+            response.send(true);
         })
         .catch(error => {
             res.send(JSON.stringify({ error: error }));
@@ -83,7 +85,7 @@ app.get('/getWeatherBit', (request, response) => {
     latitude = data[latitude];
     longitude = data[longitude];
     const weatherBitApiKey = "f0e0fd1fc3af481aac136783ebbb1894";
-    const url = `https://api.weatherbit.io/v2.0/forecast/daily?lat=${latitude}&lon=${longitude}&key=${weatherBitApiKey}`;
+    const url = `https://api.weatherbit.io/v2.0/forecast/daily?lat=${temp.lat}&lon=${temp.lng}&key=${weatherBitApiKey}`;
     console.log(url);
     fetch(url)
         .then(response => response.json())
