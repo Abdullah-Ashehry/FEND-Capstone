@@ -6,15 +6,15 @@
 
 document.getElementById("save_trip").addEventListener("click", performAction);
 
-function performAction(event) {
+async function performAction(event) {
     event.preventDefault();
     console.log('In Perform Action');
 
     const newCity = document.getElementById("city").value;
-    const departureDate = document.getElementById("departure_date").value;
-    departureDate = newDate(departureDate);
-    const returnDate = document.getElementById("return_date").value;
-    returnDate = newDate(returnDate);
+    const departure = document.getElementById("departure_date").value;
+    departureDate = new Date(departure);
+    const returnD = document.getElementById("return_date").value;
+    returnDate = new Date(returnD);
     const tripLength = returnDate.getTime() - departureDate.getTime();
     const daysLength = tripLength / (1000 * 60 * 60 * 24);
 
