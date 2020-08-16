@@ -22,25 +22,25 @@ async function performAction(event) {
     const daysLength = tripLength / (1000 * 60 * 60 * 24);
     console.log(daysLength);
 
-    // const coordiantesData = await getGeo('http://localhost:8080/getGeo');
-    await postUserInput('http://localhost:8080/userInput', {
+    // const coordiantesData = await getGeo('http://localhost:8000/getGeo');
+    await postUserInput('http://localhost:8000/userInput', {
         city: newCity,
         departureDate: departureDate,
         returnDate: returnDate,
         daysLength: daysLength
     });
     console.log('afterpostUserInput')
-    await getGeo('http://localhost:8080/getGeo');
+    await getGeo('http://localhost:8000/getGeo');
     console.log('after getGEO');
-    const weatherData = await getWeather("http://localhost:8080/getWeatherBit");
+    const weatherData = await getWeather("http://localhost:8000/getWeatherBit");
     let minTemp = weatherData[minTemp];
     console.log(minTemp);
     let maxTemp = weatherData[maxTemp];
     console.log(maxTemp);
-    const imgData = await getImage(`http://localhost:8080/getPixabay`);
+    const imgData = await getImage(`http://localhost:8000/getPixabay`);
     console.log(imgData);
     let image = imgData;
-    await postTrip('http://localhost:8080/addTrip', {
+    await postTrip('http://localhost:8000/addTrip', {
         city: newCity,
         departureDate: departureDate,
         returnDate: returnDate,

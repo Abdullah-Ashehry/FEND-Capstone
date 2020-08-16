@@ -47,14 +47,16 @@ app.post('/userInput', (request, response) => {
     console.log('serverPostUserInput')
 
     let data = request.body;
-    let entry = {
-        city = data.city,
-        departureDate = data.departureDate,
-        returnDate = data.returnDate,
-        tripLength = data.tripLength
-    }
+    // let entry = {
+    //     city = data.city,
+    //     // departureDate = data.departureDate,
+    //     // returnDate = data.returnDate,
+    //     // tripLength = data.tripLength
+    // }
+    temp.city = data.city;
     temp = entry;
     console.log(entry);
+    res.send(true)
 })
 
 app.get('/getGeo', (request, response) => {
@@ -125,7 +127,7 @@ app.get('/getPixabay', (request, response) => {
 
 app.post('/addTrip', (req, res) => {
     console.log(req.body)
-    temp = {
+    let temp = {
         // country: req.body.country,
         city: req.body.city,
         departureDate: req.body.departureDate,

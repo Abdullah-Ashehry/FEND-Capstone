@@ -8,3 +8,4 @@
 
 import './styles/style.scss'
 import { showTrip } from './js/app';
+import { performAction } from './js/app';
