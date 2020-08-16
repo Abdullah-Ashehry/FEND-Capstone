@@ -21,17 +21,20 @@ function performAction(event) {
 
     const coordiantesData = await getGeo('http:localhost:8080/getGeo');
     const weatherData = await getWeather(`http://localhost:8080/getWeatherBit`, coordiantesData);
+    let minTemp = weatherData[minTemp];
+    let maxTemp = weatherData[maxTemp];
     const imgData = await getImage(`http://localhost:8080/getPixabay`);
+    let image = imgData;
     await postTrip('http://localhost:8080/addTrip', {
         city: newCity,
         departureDate: departureDate,
         returnDate: returnDate,
         tripLength: daysLength,
-        minTemp: weatherData[minTemp],
-        maxTemp: weatherData[maxTemp],
+        minTemp: minTemp,
+        maxTemp: maxTemp,
         image: imgData
     });
-    createCard()
+    createCard(newCity, departureDate, returnDate, daysLength, minTemp, maxTemp, image)
 
 };
 
@@ -112,7 +115,7 @@ const getImage = async(url) => {
 
 // Updating the UI by adding a card with all the information.
 
-function createCard(city, departureDate, returnDate, minTemp, maxTemp, image) {
+function createCard(city, departureDate, returnDate, daysLength, minTemp, maxTemp, image) {
     container = document.createElement('div').classList.add('container');
     card = document.createElement('div').classList.add('card');
     card_header = document.createElement('h4').id('card_header');
@@ -120,7 +123,7 @@ function createCard(city, departureDate, returnDate, minTemp, maxTemp, image) {
     image = document.createElement('img')
     image.setAttribute('src', imgSrc);
     card_title = document.createElement('h2').id('card_title');
-    card_title.innerHTML = `From ${departureDate}, until ${returnDate } `;
+    card_title.innerHTML = `From ${departureDate}, until ${returnDate } and the length of the trip is : ${daysLength}`;
     card_weather = document.createElement('p').id('card_weather');
     card_weather.innerHTML = `The minimum temprature is : ${minTemp} and the maximum temprature will be : ${maxTemp}`;
 }
