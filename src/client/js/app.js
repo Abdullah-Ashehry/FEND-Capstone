@@ -126,6 +126,7 @@ function createCard(city, departureDate, returnDate, daysLength, minTemp, maxTem
     card_title.innerHTML = `From ${departureDate}, until ${returnDate } and the length of the trip is : ${daysLength}`;
     card_weather = document.createElement('p').id('card_weather');
     card_weather.innerHTML = `The minimum temprature is : ${minTemp} and the maximum temprature will be : ${maxTemp}`;
+    document.querySelector(".card").innerHTML = container;
 }
 
 // OnRipple Effect
