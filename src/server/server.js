@@ -49,99 +49,95 @@ app.post('/userInput', (request, response) => {
     console.log('serverPostUserInput')
 
     let data = request.body;
-    // let entry = {
-    //     city = data.city,
-    //     // departureDate = data.departureDate,
-    //     // returnDate = data.returnDate,
-    //     // tripLength = data.tripLength
-    // }
     temp.city = data.city;
-    // temp = entry;
-    // console.log(entry);
+
     response.send(true)
 })
 
-app.get('/getGeo', (request, response) => {
-    console.log('getGeo')
+
+app.get('/getGeo', (req, res) => {
+    console.log('GET georaphics')
     username = 'abady301'
-    const url = `http://api.geonames.org/searchJSON?q=${temp.city}&maxRows=1&username=${username}`;
+    const url = `http://api.geonames.org/postalCodeSearchJSON?placename=${temp.city}&maxRows=10&username=${username}`;
     console.log(url);
     fetch(url)
-        .then(response => response.json())
+        .then(res => res.json())
         .then(response => {
-            console.log('Data From Geo Server')
-            console.log(response.data)
 
-            temp.lat = response.data.geonames.lat;
-            console.log(temp.lat);
-            temp.lng = response.data.geonames.lng;
-            console.log(temp.lng);
+            console.log('Data From GeoServer')
+            console.log(response.postalCodes[0]);
+            temp.Long = response.postalCodes[0].lng;
+            console.log(temp.Long);
+            temp.Lat = response.postalCodes[0].lat;
+            console.log(temp.Lat);
+            temp.country = response.postalCodes['0'].countryCode;
+            console.log(temp.country)
 
-            response.send(true);
+            res.send({
+                country: temp.country
+            });
         })
         .catch(error => {
-            response.send(JSON.stringify({ error: error }));
+            res.send(JSON.stringify({ error: error }));
         })
-})
+});
 
 
-
-app.get('/getWeatherBit', (request, response) => {
-    console.log('getWeatherBit');
-    // let data = request.body;
-    // latitude = data[latitude];
-    // longitude = data[longitude];
+app.get('/getWeatherBit', (req, res) => {
+    console.log('GET weather');
     const weatherBitApiKey = "f0e0fd1fc3af481aac136783ebbb1894";
-    const url = `https://api.weatherbit.io/v2.0/forecast/daily?lat=${temp.lat}&lon=${temp.lng}&key=${weatherBitApiKey}`;
+    const url = `https://api.weatherbit.io/v2.0/current?lat=${temp.Lat}&lon=${temp.Long}&key=${weatherBitApiKey}`;
     console.log(url);
     fetch(url)
         .then(response => response.json())
         .then(response => {
-            const data = response.data[temp.duration]
+            const data = response.data;
             console.log(data)
 
-            temp.maxTemp = data.max_temp;
-            console.log(temp.maxTemp);
-            temp.minTemp = data.min_temp;
-            console.log(temp.minTemp);
+            temp.temprature = data['0'].temp;
+            console.log(temp.temprature)
+            temp.weatherDescription = data['0'].weather.description;
+            console.log(temp.weatherDescription)
 
-            response.send({ maxTemp: temp.MaxTemp, minTemp: temp.MinTemp });
+            res.send({ temprature: temp.temprature, weatherDescription: temp.weatherDescription });
         })
         .catch(error => {
-            response.send(JSON.stringify({ error: "An error occured" }));
+            res.send(JSON.stringify({ error: "An error occured" }));
         })
 })
 
-app.get('/getPixabay', (request, response) => {
-    console.log('getPixabay')
+
+
+app.get('/getPixabay', (req, res) => {
+    console.log('GET Image')
     const pixabayApiKey = "17890716-25481aa580131a2d454b71ece";
-    const pixabayLink = `https://pixabay.com/api/?key=${pixabayApiKey}&?q=${city}`;
-    console.log(pixabayLink);
-    fetch(pixabayLink)
+    const url = `https://pixabay.com/api/?key=${pixabayApiKey}&q=${temp.city}&image_type=photo`;
+    console.log(url);
+    fetch(url)
         .then(response => response.json())
         .then(response => {
 
-            console.log(res.data.hits[0].pageURL);
-            temp.image = res.data.hits[0].pageURL;
-            response.send({ image: temp.image });
+            const result = response.hits[0].webformatURL;
+            console.log(`Image result: ${result}`)
+            temp.image = result;
+            res.send({ image: result });
 
         })
         .catch(error => {
-            response.send(JSON.stringify({ error: "An error has occured" }));
+            res.send(JSON.stringify({ error: "An error has occured" }));
         })
 })
-
 
 app.post('/addTrip', (req, res) => {
     console.log(req.body)
     let temp = {
-        // country: req.body.country,
+        country: req.body.country,
         city: req.body.city,
         departureDate: req.body.departureDate,
         returnDate: req.body.returnDate,
         tripLength: req.body.tripLength,
-        minTemp: req.body.minTemp,
-        maxTemp: req.body.maxTemp,
+        temprature: req.body.temprature,
+        weatherDescription: req.body.weatherDescription,
         image: req.body.image,
     };
     console.log(temp);

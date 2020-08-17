@@ -22,7 +22,6 @@ async function performAction(event) {
     const daysLength = tripLength / (1000 * 60 * 60 * 24);
     console.log(daysLength);
 
-    // const coordiantesData = await getGeo('http://localhost:8000/getGeo');
     await postUserInput('http://localhost:8000/userInput', {
         city: newCity,
         departureDate: departureDate,
@@ -30,26 +29,35 @@ async function performAction(event) {
         daysLength: daysLength
     });
     console.log('afterpostUserInput')
-    await getGeo('http://localhost:8000/getGeo');
+
+    let country = await getGeo('http://localhost:8000/getGeo');
     console.log('after getGEO');
+    console.log(country);
+
     const weatherData = await getWeather("http://localhost:8000/getWeatherBit");
-    let minTemp = weatherData[minTemp];
-    console.log(minTemp);
-    let maxTemp = weatherData[maxTemp];
-    console.log(maxTemp);
+    // let minTemp = weatherData[minTemp];
+    // console.log(minTemp);
+    let temprature = weatherData.temprature;
+    let weatherDescription = weatherData.weatherDescription;
+    console.log(temprature);
+    console.log(weatherDescription);
+
     const imgData = await getImage(`http://localhost:8000/getPixabay`);
     console.log(imgData);
     let image = imgData;
+
     await postTrip('http://localhost:8000/addTrip', {
         city: newCity,
+        country: country,
         departureDate: departureDate,
         returnDate: returnDate,
         tripLength: daysLength,
-        minTemp: minTemp,
-        maxTemp: maxTemp,
+        // minTemp: minTemp,
+        temprature: temprature,
+        weatherDescription: weatherDescription,
         image: imgData
     });
-    createCard(newCity, departureDate, returnDate, daysLength, minTemp, maxTemp, image)
+    createCard(newCity, country, departureDate, returnDate, daysLength, temprature, image)
 
 };
 
@@ -87,7 +95,7 @@ async function postTrip(url, tripData) {
 // GeoLocationAPI
 
 const getGeo = async(url) => {
-    console.log('in GetGEO');
+    console.log('in GetGEO getting country');
     const res = await fetch(url, {
         method: 'GET',
         mode: 'cors',
@@ -96,8 +104,9 @@ const getGeo = async(url) => {
         }
     });
     try {
-        // const data = await res.json();
-        return;
+        const data = await res.json();
+        console.log(`country is: ${data}`);
+        return data;
 
     } catch (e) {
         console.log(e);
@@ -114,9 +123,6 @@ const getWeather = async(url) => {
         headers: {
             'Content-Type': 'application/json:charset=utf-8'
         }
-        // body: {
-        // json: JSON.stringify(coordiantesData)
-        // }
     });
     try {
         const data = await res.json();
@@ -149,17 +155,17 @@ const getImage = async(url) => {
 
 // Updating the UI by adding a card with all the information.
 
-function createCard(city, departureDate, returnDate, daysLength, minTemp, maxTemp, image) {
+function createCard(city, country, departureDate, returnDate, daysLength, temp, weatherDescription, image) {
     container = document.createElement('div').classList.add('container');
     card = document.createElement('div').classList.add('card');
     card_header = document.createElement('h4').id('card_header');
-    card_header.innerHTML = `${city}`;
+    card_header.innerHTML = `${city}, ${country}`;
     image = document.createElement('img').id('pixabay_image');
     image.setAttribute('src', image);
     card_title = document.createElement('h2').id('card_title');
     card_title.innerHTML = `From ${departureDate}, until ${returnDate } and the length of the trip is : ${daysLength}`;
     card_weather = document.createElement('p').id('card_weather');
-    card_weather.innerHTML = `The minimum temprature is : ${minTemp} and the maximum temprature will be : ${maxTemp}`;
+    card_weather.innerHTML = `The weather is : ${weatherDescription} and the temprature will be : ${temp}`;
     document.querySelector(".card").innerHTML = container;
 }
 
