@@ -52,12 +52,12 @@ async function performAction(event) {
         departureDate: departureDate,
         returnDate: returnDate,
         tripLength: daysLength,
-        // minTemp: minTemp,
         temprature: temprature,
         weatherDescription: weatherDescription,
         image: imgData
     });
-    createCard(newCity, country, departureDate, returnDate, daysLength, temprature, image)
+    console.log('Before Create Card');
+    createCard(newCity, country, departureDate, returnDate, daysLength, temprature, weatherDescription, image);
 
 };
 
@@ -155,8 +155,8 @@ const getImage = async(url) => {
 
 // Updating the UI by adding a card with all the information.
 
-function createCard(city, country, departureDate, returnDate, daysLength, temp, weatherDescription, imageData) {
-
+function createCard(city, country, departureDate, returnDate, daysLength, temprature, weatherDescription, imageData) {
+    console.log('in Create Card');
     let container = document.createElement('div');
     container.classList.add('container');
 
@@ -177,11 +177,11 @@ function createCard(city, country, departureDate, returnDate, daysLength, temp, 
 
     let card_weather = document.createElement('p');
     card_weather.setAttribute("id", "card_weather");
-    card_weather.innerHTML = `The weather is : ${weatherDescription} and the temprature will be : ${temp}`;
+    card_weather.innerHTML = `The weather is : ${weatherDescription} and the temprature will be : ${temprature}`;
 
     // document.querySelector(".card").innerHTML = container;
     document.querySelector(".card").appendChild(container);
-
+    console.log('end of create card');
 }
 
 // OnRipple Effect
