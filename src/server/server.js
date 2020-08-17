@@ -10,6 +10,8 @@ const express = require('express')
 
 // Start up an instance of app
 const app = express();
+const fetch = require('node-fetch');
+
 
 
 
@@ -67,10 +69,13 @@ app.get('/getGeo', (request, response) => {
     fetch(url)
         .then(response => response.json())
         .then(response => {
-            console.log('Data From Geo[0]')
-            console.log(res.data)
-            temp.lat = res.data.geonames[0].lat;
-            temp.lng = res.data.geonames[0].lng;
+            console.log('Data From Geo Server')
+            console.log(response.data)
+
+            temp.lat = response.data.geonames.lat;
+            console.log(temp.lat);
+            temp.lng = response.data.geonames.lng;
+            console.log(temp.lng);
 
             response.send(true);
         })
@@ -96,7 +101,9 @@ app.get('/getWeatherBit', (request, response) => {
             console.log(data)
 
             temp.maxTemp = data.max_temp;
+            console.log(temp.maxTemp);
             temp.minTemp = data.min_temp;
+            console.log(temp.minTemp);
 
             response.send({ maxTemp: temp.MaxTemp, minTemp: temp.MinTemp });
         })
