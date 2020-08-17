@@ -1,7 +1,9 @@
 const path = require('path')
 const webpack = require('webpack')
 const HtmlWebPackPlugin = require("html-webpack-plugin")
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const {
+    CleanWebpackPlugin
+} = require('clean-webpack-plugin')
 const WorkboxPlugin = require('workbox-webpack-plugin');
 
 
@@ -16,7 +18,7 @@ module.exports = {
         port: 8080,
         proxy: {
             context: () => true,
-            target: "http://localhost:7000/",
+            target: "http://localhost:8000/",
             secure: false
         }
     },

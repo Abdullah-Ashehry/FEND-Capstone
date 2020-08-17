@@ -22,7 +22,7 @@ async function performAction(event) {
     const daysLength = tripLength / (1000 * 60 * 60 * 24);
     console.log(daysLength);
 
-    await postUserInput('http://localhost:8000/userInput', {
+    await postUserInput('userInput', {
         city: newCity,
         departureDate: departureDate,
         returnDate: returnDate,
@@ -30,11 +30,11 @@ async function performAction(event) {
     });
     console.log('afterpostUserInput')
 
-    let country = await getGeo('http://localhost:8000/getGeo');
+    let country = await getGeo('getGeo');
     console.log('after getGEO');
     console.log(country);
 
-    const weatherData = await getWeather("http://localhost:8000/getWeatherBit");
+    const weatherData = await getWeather("getWeatherBit");
     // let minTemp = weatherData[minTemp];
     // console.log(minTemp);
     let temprature = weatherData.temprature;
@@ -42,11 +42,11 @@ async function performAction(event) {
     console.log(temprature);
     console.log(weatherDescription);
 
-    const imgSrc = await getImage(`http://localhost:8000/getPixabay`);
-    console.log(imgSrc);
-    let image = imgSrc;
+    const imgData = await getImage(`getPixabay`);
+    console.log(imgData);
+    let image = imgData;
 
-    await postTrip('http://localhost:8000/addTrip', {
+    await postTrip('addTrip', {
         city: newCity,
         country: country,
         departureDate: departureDate,
@@ -55,7 +55,7 @@ async function performAction(event) {
         // minTemp: minTemp,
         temprature: temprature,
         weatherDescription: weatherDescription,
-        image: imgSrc
+        image: imgData
     });
     createCard(newCity, country, departureDate, returnDate, daysLength, temprature, image)
 
@@ -155,7 +155,7 @@ const getImage = async(url) => {
 
 // Updating the UI by adding a card with all the information.
 
-function createCard(city, country, departureDate, returnDate, daysLength, temp, weatherDescription, imageSrc) {
+function createCard(city, country, departureDate, returnDate, daysLength, temp, weatherDescription, imageData) {
 
     let container = document.createElement('div');
     container.classList.add('container');
@@ -169,7 +169,7 @@ function createCard(city, country, departureDate, returnDate, daysLength, temp, 
 
     let image = document.createElement('img');
     image.setAttribute("id", "pixabay_image");
-    image.setAttribute('src', imageSrc);
+    image.setAttribute('src', imageData);
 
     let card_title = document.createElement('h2');
     card_title.setAttribute("id", "card_title");
@@ -179,7 +179,9 @@ function createCard(city, country, departureDate, returnDate, daysLength, temp, 
     card_weather.setAttribute("id", "card_weather");
     card_weather.innerHTML = `The weather is : ${weatherDescription} and the temprature will be : ${temp}`;
 
-    document.querySelector(".card").innerHTML = container;
+    // document.querySelector(".card").innerHTML = container;
+    document.querySelector(".card").appendChild(container);
+
 }
 
 // OnRipple Effect
@@ -223,5 +225,9 @@ document.getElementById("add_trip").addEventListener("click", function(event) {
     }
 });
 
-export { onClick }
-export { performAction }
+export {
+    onClick
+}
+export {
+    performAction
+}
