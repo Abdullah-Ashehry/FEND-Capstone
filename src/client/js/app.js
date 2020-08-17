@@ -42,9 +42,9 @@ async function performAction(event) {
     console.log(temprature);
     console.log(weatherDescription);
 
-    const imgData = await getImage(`http://localhost:8000/getPixabay`);
-    console.log(imgData);
-    let image = imgData;
+    const imgSrc = await getImage(`http://localhost:8000/getPixabay`);
+    console.log(imgSrc);
+    let image = imgSrc;
 
     await postTrip('http://localhost:8000/addTrip', {
         city: newCity,
@@ -55,7 +55,7 @@ async function performAction(event) {
         // minTemp: minTemp,
         temprature: temprature,
         weatherDescription: weatherDescription,
-        image: imgData
+        image: imgSrc
     });
     createCard(newCity, country, departureDate, returnDate, daysLength, temprature, image)
 
@@ -155,17 +155,30 @@ const getImage = async(url) => {
 
 // Updating the UI by adding a card with all the information.
 
-function createCard(city, country, departureDate, returnDate, daysLength, temp, weatherDescription, image) {
-    container = document.createElement('div').classList.add('container');
-    card = document.createElement('div').classList.add('card');
-    card_header = document.createElement('h4').id('card_header');
+function createCard(city, country, departureDate, returnDate, daysLength, temp, weatherDescription, imageSrc) {
+
+    let container = document.createElement('div');
+    container.classList.add('container');
+
+    let card = document.createElement('div');
+    card.classList.add('card');
+
+    let card_header = document.createElement('h4');
+    card_header.setAttribute("id", "card_header");
     card_header.innerHTML = `${city}, ${country}`;
-    image = document.createElement('img').id('pixabay_image');
-    image.setAttribute('src', image);
-    card_title = document.createElement('h2').id('card_title');
+
+    let image = document.createElement('img');
+    image.setAttribute("id", "pixabay_image");
+    image.setAttribute('src', imageSrc);
+
+    let card_title = document.createElement('h2');
+    card_title.setAttribute("id", "card_title");
     card_title.innerHTML = `From ${departureDate}, until ${returnDate } and the length of the trip is : ${daysLength}`;
-    card_weather = document.createElement('p').id('card_weather');
+
+    let card_weather = document.createElement('p');
+    card_weather.setAttribute("id", "card_weather");
     card_weather.innerHTML = `The weather is : ${weatherDescription} and the temprature will be : ${temp}`;
+
     document.querySelector(".card").innerHTML = container;
 }
 
