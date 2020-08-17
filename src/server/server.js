@@ -141,7 +141,7 @@ app.post('/addTrip', (req, res) => {
         image: req.body.image,
     };
     console.log(temp);
-    // res.send(temp);
+    res.send(true);
 })
 
 app.get('/allTripData', function(request, response) {

@@ -22,7 +22,7 @@ async function performAction(event) {
     const daysLength = tripLength / (1000 * 60 * 60 * 24);
     console.log(daysLength);
 
-    await postUserInput('userInput', {
+    await postUserInput('http://localhost:8000/userInput', {
         city: newCity,
         departureDate: departureDate,
         returnDate: returnDate,
@@ -30,11 +30,11 @@ async function performAction(event) {
     });
     console.log('afterpostUserInput')
 
-    let country = await getGeo('getGeo');
+    let country = await getGeo('http://localhost:8000/getGeo');
     console.log('after getGEO');
     console.log(country);
 
-    const weatherData = await getWeather("getWeatherBit");
+    const weatherData = await getWeather("http://localhost:8000/getWeatherBit");
     // let minTemp = weatherData[minTemp];
     // console.log(minTemp);
     let temprature = weatherData.temprature;
@@ -42,11 +42,12 @@ async function performAction(event) {
     console.log(temprature);
     console.log(weatherDescription);
 
-    const imgData = await getImage(`getPixabay`);
+    const imgData = await getImage(`http://localhost:8000/getPixabay`);
     console.log(imgData);
-    let image = imgData;
+    // let image = imgData;
 
-    await postTrip('addTrip', {
+    console.log("Before of PostTrip");
+    await postTrip('http://localhost:8000/addTrip', {
         city: newCity,
         country: country,
         departureDate: departureDate,
@@ -54,10 +55,10 @@ async function performAction(event) {
         tripLength: daysLength,
         temprature: temprature,
         weatherDescription: weatherDescription,
-        image: imgData
+        image: imgData,
     });
     console.log('Before Create Card');
-    createCard(newCity, country, departureDate, returnDate, daysLength, temprature, weatherDescription, image);
+    createCard(newCity, country, departureDate, returnDate, daysLength, temprature, weatherDescription, imgData);
 
 };
 
@@ -90,6 +91,7 @@ async function postTrip(url, tripData) {
         },
         body: JSON.stringify(tripData)
     });
+    console.log('Exiting postTrip');
 }
 
 // GeoLocationAPI
@@ -145,12 +147,14 @@ const getImage = async(url) => {
         }
     });
     try {
+        console.log('GetImageInTry');
         const data = await res.json();
-        console.log(`ImageData: ${data}`);
+        console.log('InGetImage');
         return data;
     } catch (e) {
         console.log(e);
     }
+    console.log('ExitingGetImage')
 }
 
 // Updating the UI by adding a card with all the information.
@@ -179,8 +183,8 @@ function createCard(city, country, departureDate, returnDate, daysLength, tempra
     card_weather.setAttribute("id", "card_weather");
     card_weather.innerHTML = `The weather is : ${weatherDescription} and the temprature will be : ${temprature}`;
 
-    // document.querySelector(".card").innerHTML = container;
-    document.querySelector(".card").appendChild(container);
+    document.querySelector(".card").innerHTML = container;
+    // document.querySelector(".card").appendChild(container);
     console.log('end of create card');
 }
 
