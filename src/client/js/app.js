@@ -159,7 +159,37 @@ const getImage = async(url) => {
 
 // Updating the UI by adding a card with all the information.
 
+// function createCard(city, country, departureDate, returnDate, daysLength, temprature, weatherDescription, imageData) {
+//     console.log('in Create Card');
+//     let container = document.createElement('div');
+//     container.classList.add('container');
+
+//     let card = document.createElement('div');
+//     card.classList.add('card');
+
+//     let card_header = document.createElement('h4');
+//     card_header.setAttribute("id", "card_header");
+//     card_header.innerHTML = `${city}, ${country}`;
+
+//     let image = document.createElement('img');
+//     image.setAttribute("id", "pixabay_image");
+//     image.setAttribute('src', imageData);
+
+//     let card_title = document.createElement('h2');
+//     card_title.setAttribute("id", "card_title");
+//     card_title.innerHTML = `From ${departureDate}, until ${returnDate } and the length of the trip is : ${daysLength}`;
+
+//     let card_weather = document.createElement('p');
+//     card_weather.setAttribute("id", "card_weather");
+//     card_weather.innerHTML = `The weather is : ${weatherDescription} and the temprature will be : ${temprature}`;
+
+//     document.querySelector(".card").innerHTML = container;
+//     // document.querySelector(".card").appendChild(container);
+//     console.log('end of create card');
+// }
+
 function createCard(city, country, departureDate, returnDate, daysLength, temprature, weatherDescription, imageData) {
+
     console.log('in Create Card');
     let container = document.createElement('div');
     container.classList.add('container');
@@ -171,10 +201,6 @@ function createCard(city, country, departureDate, returnDate, daysLength, tempra
     card_header.setAttribute("id", "card_header");
     card_header.innerHTML = `${city}, ${country}`;
 
-    let image = document.createElement('img');
-    image.setAttribute("id", "pixabay_image");
-    image.setAttribute('src', imageData);
-
     let card_title = document.createElement('h2');
     card_title.setAttribute("id", "card_title");
     card_title.innerHTML = `From ${departureDate}, until ${returnDate } and the length of the trip is : ${daysLength}`;
@@ -183,8 +209,20 @@ function createCard(city, country, departureDate, returnDate, daysLength, tempra
     card_weather.setAttribute("id", "card_weather");
     card_weather.innerHTML = `The weather is : ${weatherDescription} and the temprature will be : ${temprature}`;
 
-    document.querySelector(".card").innerHTML = container;
-    // document.querySelector(".card").appendChild(container);
+    let image = document.createElement('img');
+    image.setAttribute("id", "pixabay_image");
+    image.setAttribute('src', imageData.image);
+
+    console.log('going to add to HTML: ', container);
+    // Add all elements into the container
+    card.appendChild(card_header);
+    card.appendChild(image);
+    card.appendChild(card_title);
+    card.appendChild(card_weather);
+    container.appendChild(card)
+        // empty out the container and add container to card.
+    document.querySelector(".card").remove();
+    document.querySelector('.box').appendChild(container);
     console.log('end of create card');
 }
 
