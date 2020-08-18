@@ -1,7 +1,7 @@
 // Setup empty JS object to act as endpoint for all routes
 
 let temp = {};
-let trip = {};
+let trip = [];
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const path = require('path')
@@ -13,7 +13,23 @@ const express = require('express')
 const app = express();
 const fetch = require('node-fetch');
 
+// Setup Trip Class
 
+class Trip {
+    constructor(country, city, departureDate, returnDate, tripLength, temprature, weatherDescription, image, countryFullName, countryCapital, countryCurrencey) {
+        this.country = country;
+        this.city = city;
+        this.departureDate = departureDate;
+        this.returnDate = returnDate;
+        this.tripLength = tripLength;
+        this.temprature = temprature;
+        this.weatherDescription = weatherDescription;
+        this.image = image;
+        this.countryFullName = countryFullName;
+        this.countryCapital = countryCapital;
+        this.countryCurrencey = countryCurrencey;
+    }
+}
 
 
 
@@ -36,7 +52,13 @@ const port = 8000;
 
 // Setup Server
 
-const server = app.listen(port, listening);
+// const server = app.listen(port, listening);
+
+const server = app.listen(8000, function() {
+    console.log("Port is 8000");
+});
+module.exports = server;
+
 
 
 // Initialize the main project folder
@@ -174,22 +196,30 @@ app.get('/getCountryInfo', (req, res) => {
 })
 
 app.post('/addTrip', (req, res) => {
-    console.log(req.body)
-    let trip = {
-        country: req.body.country,
-        city: req.body.city,
-        departureDate: req.body.departureDate,
-        returnDate: req.body.returnDate,
-        tripLength: req.body.tripLength,
-        temprature: req.body.temprature,
-        weatherDescription: req.body.weatherDescription,
-        image: req.body.image,
-        countryFullName: req.body.countryFullName,
-        countryCapital: req.body.countryCapital,
-        countryCurrencey: req.body.countryCurrencey
-    };
-    console.log(trip);
-    res.send(true);
+    console.log(req.body);
+    try {
+        // let trip = {
+        let country = req.body.country;
+        let city = req.body.city;
+        let departureDate = req.body.departureDate;
+        let returnDate = req.body.returnDate;
+        let tripLength = req.body.tripLength;
+        let temprature = req.body.temprature;
+        let weatherDescription = req.body.weatherDescription;
+        let image = req.body.image;
+        let countryFullName = req.body.countryFullName;
+        let countryCapital = req.body.countryCapital;
+        let countryCurrencey = req.body.countryCurrencey;
+        // };
+        mainTrip = new Trip(country, city, departureDate, returnDate, tripLength, temprature, weatherDescription, image, countryFullName, countryCapital, countryCurrencey);
+        trip.push(mainTrip)
+        console.log(mainTrip);
+        console.log(trip.length);
+        res.send(true);
+        // localStorage.setItem('tripData', trip)
+    } catch (error) {
+        console.log(error.message.json)
+    }
 })
 
 app.get('/allTripData', function(request, response) {

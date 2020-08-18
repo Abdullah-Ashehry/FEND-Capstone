@@ -1,10 +1,24 @@
-// Pixabay API Setup
+document.addEventListener('DOMContentLoaded', function() {
 
-// Weatherbit API Setup
-// Create a new date instance dynamically with JS
+    let saveTrip = document.getElementById("save_trip").addEventListener("click", performAction);
+
+    // let addTrip = document.getElementById('add_trip').addEventListener("click", getStoredTrips);
 
 
-document.getElementById("save_trip").addEventListener("click", performAction);
+    // Display, Hide the container for adding new trips
+
+    let hideTrip = document.getElementById("add_trip").addEventListener("click", function(event) {
+        let container = document.getElementById("add_trip_info");
+        console.log(container.classList);
+        if (container.classList.contains('hide_class')) {
+            container.style.display == 'display:none';
+            container.classList.remove('hide_class')
+        } else {
+            container.classList.add('hide_class');
+        }
+    });
+});
+
 
 async function performAction(event) {
     event.preventDefault();
@@ -68,6 +82,10 @@ async function performAction(event) {
         countryCapital: countryCapital,
         countryCurrencey: countryCurrencey
     });
+    // console.log('local storage sent')
+    // setLocalStorage();
+
+
     console.log('Before Create Card');
     createCard(newCity, country, departureDate, returnDate, daysLength, temprature, weatherDescription, imgData, countryFullName, countryCapital, countryCurrencey);
 
@@ -182,12 +200,55 @@ const getCountryInfo = async(url) => {
         console.log('InGetCountryInfo');
         const data = await res.json();
         console.log(`country response : ${data}`);
+        console.log(`country response : ${data.countryFullName}`);
+
         return data;
     } catch (e) {
         console.log(e);
     }
     console.log('ExitingGetCountryInfo');
 }
+
+// LocalStorage (Under Dev)
+
+// const tripFromServer = async(url) => {
+//     const res = await fetch(url, {
+//         method: 'GET',
+//         mode: 'cors',
+//         headers: {
+//             'Content-Type': 'application/json;charset=utf-8'
+//         }
+//     });
+//     try {
+//         console.log('In tripFromServer');
+//         const data = await res.json();
+//         console.log(`tripFromServer response : ${data}`);
+//         return data;
+//     } catch (e) {
+//         console.log(e);
+//     }
+//     console.log('Exiting tripFromServer');
+// }
+
+// async function setLocalStorage() {
+//     const data = await tripFromServer('http://localhost:8000/allTripData')
+//     window.localStorage.setItem('tripData', data);
+// }
+
+
+// function getStoredTrips() {
+//     console.log('in cache');
+//     let tripData = localStorage.getItem("tripData");
+//     if (tripData != null) {
+//         console.log(tripData);
+//         console.log('before for loop');
+
+//         for (let i = 0; i < tripData.length; i++) {
+//             createCard(tripData[i].city, tripData[i].country, tripData[i].departureDate, tripData[i].returnDate, tripData[i].daysLength, tripData[i].temprature, tripData[i].weatherDescription, tripData[i].image, tripData[i].countryFullName, tripData[i].countryCapital, tripData[i].countryCurrencey);
+//         }
+//         console.log('After for loop');
+//     }
+// }
 
 // Updating the UI by adding a card with all the information.
 
@@ -230,8 +291,8 @@ function createCard(city, country, departureDate, returnDate, daysLength, tempra
     card.appendChild(image);
 
     container.appendChild(card)
-        // empty out the container and add container to card.
-        // document.querySelector(".card").remove();
+
+
     document.querySelector('.box').appendChild(container);
     console.log('end of create card');
 }
@@ -264,18 +325,9 @@ document.querySelectorAll(".btn-ripple").forEach((button) => {
     button.addEventListener("click", onClick);
 });
 
-// Display, Hide the container for adding new trips
 
-document.getElementById("add_trip").addEventListener("click", function(event) {
-    let container = document.getElementById("add_trip_info");
-    console.log(container.classList);
-    if (container.classList.contains('hide_class')) {
-        container.style.display == 'display:none';
-        container.classList.remove('hide_class')
-    } else {
-        container.classList.add('hide_class');
-    }
-});
+
+
 
 export {
     onClick,
