@@ -13,12 +13,15 @@ async function performAction(event) {
     const newCity = document.getElementById("city").value;
     console.log(newCity);
     const departure = document.getElementById("departure_date").value;
-    let departureDate = new Date(departure);
+    let departureD = new Date(departure);
+    let departureDate = departureD.getDate() + "-" + (departureD.getMonth() + 1) + "-" + departureD.getFullYear();
+    console.log(departureD);
     console.log(departureDate);
     const returnD = document.getElementById("return_date").value;
-    let returnDate = new Date(returnD);
+    let returnDay = new Date(returnD);
+    let returnDate = returnDay.getDate() + "-" + (returnDay.getMonth() + 1) + "-" + returnDay.getFullYear();
     console.log(returnDate);
-    const tripLength = returnDate.getTime() - departureDate.getTime();
+    const tripLength = returnDay.getTime() - departureD.getTime();
     const daysLength = tripLength / (1000 * 60 * 60 * 24);
     console.log(daysLength);
 
@@ -35,8 +38,7 @@ async function performAction(event) {
     console.log(country);
 
     const weatherData = await getWeather("http://localhost:8000/getWeatherBit");
-    // let minTemp = weatherData[minTemp];
-    // console.log(minTemp);
+
     let temprature = weatherData.temprature;
     let weatherDescription = weatherData.weatherDescription;
     console.log(temprature);
@@ -44,7 +46,13 @@ async function performAction(event) {
 
     const imgData = await getImage(`http://localhost:8000/getPixabay`);
     console.log(imgData);
-    // let image = imgData;
+
+    const countryInfo = await getCountryInfo('http://localhost:8000/getCountryInfo');
+    console.log(countryInfo);
+    let countryFullName = countryInfo.countryFullName;
+    let countryCapital = countryInfo.countryCapital;
+    let countryCurrencey = countryInfo.countryCurrencey;
+
 
     console.log("Before of PostTrip");
     await postTrip('http://localhost:8000/addTrip', {
@@ -56,9 +64,12 @@ async function performAction(event) {
         temprature: temprature,
         weatherDescription: weatherDescription,
         image: imgData,
+        countryFullName: countryFullName,
+        countryCapital: countryCapital,
+        countryCurrencey: countryCurrencey
     });
     console.log('Before Create Card');
-    createCard(newCity, country, departureDate, returnDate, daysLength, temprature, weatherDescription, imgData);
+    createCard(newCity, country, departureDate, returnDate, daysLength, temprature, weatherDescription, imgData, countryFullName, countryCapital, countryCurrencey);
 
 };
 
@@ -157,38 +168,30 @@ const getImage = async(url) => {
     console.log('ExitingGetImage')
 }
 
+// Coutnries API
+
+const getCountryInfo = async(url) => {
+    const res = await fetch(url, {
+        method: 'GET',
+        mode: 'cors',
+        headers: {
+            'Content-Type': 'application/json;charset=utf-8'
+        }
+    });
+    try {
+        console.log('InGetCountryInfo');
+        const data = await res.json();
+        console.log(`country response : ${data}`);
+        return data;
+    } catch (e) {
+        console.log(e);
+    }
+    console.log('ExitingGetCountryInfo');
+}
+
 // Updating the UI by adding a card with all the information.
 
-// function createCard(city, country, departureDate, returnDate, daysLength, temprature, weatherDescription, imageData) {
-//     console.log('in Create Card');
-//     let container = document.createElement('div');
-//     container.classList.add('container');
-
-//     let card = document.createElement('div');
-//     card.classList.add('card');
-
-//     let card_header = document.createElement('h4');
-//     card_header.setAttribute("id", "card_header");
-//     card_header.innerHTML = `${city}, ${country}`;
-
-//     let image = document.createElement('img');
-//     image.setAttribute("id", "pixabay_image");
-//     image.setAttribute('src', imageData);
-
-//     let card_title = document.createElement('h2');
-//     card_title.setAttribute("id", "card_title");
-//     card_title.innerHTML = `From ${departureDate}, until ${returnDate } and the length of the trip is : ${daysLength}`;
-
-//     let card_weather = document.createElement('p');
-//     card_weather.setAttribute("id", "card_weather");
-//     card_weather.innerHTML = `The weather is : ${weatherDescription} and the temprature will be : ${temprature}`;
-
-//     document.querySelector(".card").innerHTML = container;
-//     // document.querySelector(".card").appendChild(container);
-//     console.log('end of create card');
-// }
-
-function createCard(city, country, departureDate, returnDate, daysLength, temprature, weatherDescription, imageData) {
+function createCard(city, country, departureDate, returnDate, daysLength, temprature, weatherDescription, imageData, countryFullName, countryCapital, countryCurrencey) {
 
     console.log('in Create Card');
     let container = document.createElement('div');
@@ -199,15 +202,20 @@ function createCard(city, country, departureDate, returnDate, daysLength, tempra
 
     let card_header = document.createElement('h4');
     card_header.setAttribute("id", "card_header");
-    card_header.innerHTML = `${city}, ${country}`;
+    card_header.innerHTML = `Your trip to :${city}, ${country.country}`;
 
-    let card_title = document.createElement('h2');
-    card_title.setAttribute("id", "card_title");
-    card_title.innerHTML = `From ${departureDate}, until ${returnDate } and the length of the trip is : ${daysLength}`;
+    let card_date = document.createElement('p');
+    card_date.setAttribute("id", "card_date");
+    card_date.innerHTML = `- From ${departureDate}, until ${returnDate } and the length of the trip is : ${daysLength} days`;
 
     let card_weather = document.createElement('p');
     card_weather.setAttribute("id", "card_weather");
-    card_weather.innerHTML = `The weather is : ${weatherDescription} and the temprature will be : ${temprature}`;
+    card_weather.innerHTML = `- The weather is : ${weatherDescription} and the temprature will be : ${temprature}`;
+
+    let country_info = document.createElement('p');
+    country_info.setAttribute("id", "country_info");
+    country_info.innerHTML = `- The Country information is: ` + "<br />" + `The country's full name is: ${countryFullName}` + "<br />" + `The country's capital : ${countryCapital}` + "<br />" + `The country's currency is : ${countryCurrencey}`;
+
 
     let image = document.createElement('img');
     image.setAttribute("id", "pixabay_image");
@@ -216,12 +224,14 @@ function createCard(city, country, departureDate, returnDate, daysLength, tempra
     console.log('going to add to HTML: ', container);
     // Add all elements into the container
     card.appendChild(card_header);
-    card.appendChild(image);
-    card.appendChild(card_title);
+    card.appendChild(card_date);
     card.appendChild(card_weather);
+    card.appendChild(country_info);
+    card.appendChild(image);
+
     container.appendChild(card)
         // empty out the container and add container to card.
-    document.querySelector(".card").remove();
+        // document.querySelector(".card").remove();
     document.querySelector('.box').appendChild(container);
     console.log('end of create card');
 }
@@ -268,8 +278,7 @@ document.getElementById("add_trip").addEventListener("click", function(event) {
 });
 
 export {
-    onClick
-}
-export {
-    performAction
+    onClick,
+    performAction,
+    createCard
 }

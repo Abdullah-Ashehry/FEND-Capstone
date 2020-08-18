@@ -1,6 +1,7 @@
 // Setup empty JS object to act as endpoint for all routes
 
 let temp = {};
+let trip = {};
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const path = require('path')
@@ -21,7 +22,9 @@ app.use(express.static('dist'))
     /* Middleware*/
     //Here we are configuring express to use body-parser as middle-ware.
 
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({
+    extended: false
+}));
 app.use(bodyParser.json());
 // Cors for cross origin allowance
 
@@ -70,7 +73,7 @@ app.get('/getGeo', (req, res) => {
             console.log(temp.Long);
             temp.Lat = response.postalCodes[0].lat;
             console.log(temp.Lat);
-            temp.country = response.postalCodes['0'].countryCode;
+            temp.country = response.postalCodes[0].countryCode;
             console.log(temp.country)
 
             res.send({
@@ -78,7 +81,9 @@ app.get('/getGeo', (req, res) => {
             });
         })
         .catch(error => {
-            res.send(JSON.stringify({ error: error }));
+            res.send(JSON.stringify({
+                error: error
+            }));
         })
 });
 
@@ -99,10 +104,15 @@ app.get('/getWeatherBit', (req, res) => {
             temp.weatherDescription = data['0'].weather.description;
             console.log(temp.weatherDescription)
 
-            res.send({ temprature: temp.temprature, weatherDescription: temp.weatherDescription });
+            res.send({
+                temprature: temp.temprature,
+                weatherDescription: temp.weatherDescription
+            });
         })
         .catch(error => {
-            res.send(JSON.stringify({ error: "An error occured" }));
+            res.send(JSON.stringify({
+                error: "An error occured"
+            }));
         })
 })
 
@@ -120,17 +130,52 @@ app.get('/getPixabay', (req, res) => {
             const result = response.hits[0].webformatURL;
             console.log(`Image result: ${result}`)
             temp.image = result;
-            res.send({ image: result });
+            res.send({
+                image: result
+            });
 
         })
         .catch(error => {
-            res.send(JSON.stringify({ error: "An error has occured" }));
+            res.send(JSON.stringify({
+                error: "An error has occured"
+            }));
+        })
+})
+
+
+app.get('/getCountryInfo', (req, res) => {
+    console.log('GET Country Info')
+    let countryEntry = temp.country
+    console.log(countryEntry);
+    const url = `https://restcountries.eu/rest/v2/alpha/${countryEntry}`;
+    console.log(url);
+    fetch(url)
+        .then(response => response.json())
+        .then(response => {
+
+            temp.coutryFullName = response.name;
+            console.log(temp.coutryFullName)
+            temp.countryCapital = response.capital;
+            console.log(temp.countryCapital);
+            temp.countryCurrencey = response.currencies['0'].code;
+            console.log(temp.countryCurrencey);
+            res.send({
+                countryFullName: temp.coutryFullName,
+                countryCapital: temp.countryCapital,
+                countryCurrencey: temp.countryCurrencey
+            });
+
+        })
+        .catch(error => {
+            res.send(JSON.stringify({
+                error: "An error has occured"
+            }));
         })
 })
 
 app.post('/addTrip', (req, res) => {
     console.log(req.body)
-    let temp = {
+    let trip = {
         country: req.body.country,
         city: req.body.city,
         departureDate: req.body.departureDate,
@@ -139,11 +184,14 @@ app.post('/addTrip', (req, res) => {
         temprature: req.body.temprature,
         weatherDescription: req.body.weatherDescription,
         image: req.body.image,
+        countryFullName: req.body.countryFullName,
+        countryCapital: req.body.countryCapital,
+        countryCurrencey: req.body.countryCurrencey
     };
-    console.log(temp);
+    console.log(trip);
     res.send(true);
 })
 
 app.get('/allTripData', function(request, response) {
-    response.send(temp);
+    response.send(trip);
 });

@@ -51,6 +51,8 @@ body {
 
 #card_header {
     color: rgb(50, 113, 223);
+    font-style: bold;
+    font-size: 25px;
     margin: 5px;
 }
 
@@ -62,7 +64,19 @@ body {
 #card_date {
     margin: 5px;
     color: #444;
-    font-size: 14px;
+    font-size: 20px;
+}
+
+#card_weather {
+    margin: 5px;
+    color: #444;
+    font-size: 20px;
+}
+
+#country_info {
+    margin: 5px;
+    color: #444;
+    font-size: 20px;
 }
 
 #card_context {
@@ -318,9 +332,31 @@ body {
 #add_trip_info {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     padding: 10px;
-    display: block;
+    display: none;
 }
 
 .hide_class {
-    display: none !important;
+    display: block !important;
+}
+
+#departing_date_label {
+    padding: 10px;
+}
+
+#city_label {
+    padding: 10px;
+}
+
+#returning_date_label {
+    padding: 10px
+}
+
+#pixabay_image {
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    // border-radius: 4px;
+    max-width: 100%;
+    height: auto;
+    padding: 5px;
+    // width: 150px;
 }

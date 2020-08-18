@@ -30,11 +30,13 @@
     },
     "devDependencies": {
         "file-loader": "^6.0.0",
+        "jest": "^26.4.0",
+        "supertest": "^4.0.2",
         "webpack-cli": "^3.3.12",
         "webpack-dev-server": "^3.11.0"
     },
     "scripts": {
-        "test": "jest1",
+        "test": "jest",
         "build": "webpack --config webpack.prod.js",
         "dev": "webpack-dev-server  --config webpack.dev.js --open",
         "start": "node src/server/server.js"
