@@ -1,0 +1,889 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2513
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 AppleSymbols;\f2\fnil\fcharset134 PingFangSC-Regular;
+\f3\fnil\fcharset128 HiraginoSans-W3;}
+{\colortbl;\red255\green255\blue255;\red251\green0\blue7;}
+{\*\expandedcolortbl;;\cssrgb\c100000\c12195\c0;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs36 \cf2 3bady@abdullahs-mbp Capstone_test % npm install\
+
+\fs24 \cf0 \
+> node@14.7.0 preinstall /Users/3bady/Documents/KFUPM/Capstone_test/node_modules/node\
+> node installArchSpecificPackage\
+\
++ node-darwin-x64@14.7.0\
+added 1 package in 2.603s\
+found 0 vulnerabilities\
+\
+\
+> fsevents@1.2.13 install /Users/3bady/Documents/KFUPM/Capstone_test/node_modules/watchpack-chokidar2/node_modules/fsevents\
+> node install.js\
+\
+  SOLINK_MODULE(target) Release/.node\
+  CXX(target) Release/obj.target/fse/fsevents.o\
+  SOLINK_MODULE(target) Release/fse.node\
+\
+> fsevents@1.2.13 install /Users/3bady/Documents/KFUPM/Capstone_test/node_modules/webpack-dev-server/node_modules/fsevents\
+> node install.js\
+\
+  SOLINK_MODULE(target) Release/.node\
+  CXX(target) Release/obj.target/fse/fsevents.o\
+  SOLINK_MODULE(target) Release/fse.node\
+\
+> core-js@2.6.11 postinstall /Users/3bady/Documents/KFUPM/Capstone_test/node_modules/core-js\
+> node -e "try\{require('./postinstall')\}catch(e)\{\}"\
+\
+Thank you for using core-js ( https://github.com/zloirock/core-js ) for polyfilling JavaScript standard library!\
+\
+The project needs your help! Please consider supporting of core-js on Open Collective or Patreon: \
+> https://opencollective.com/core-js \
+> https://www.patreon.com/zloirock \
+\
+Also, the author of core-js ( https://github.com/zloirock ) is looking for a good job -)\
+\
+\
+> ejs@2.7.4 postinstall /Users/3bady/Documents/KFUPM/Capstone_test/node_modules/ejs\
+> node ./postinstall.js\
+\
+Thank you for installing EJS: built with the Jake JavaScript build tool (https://jakejs.com/)\
+\
+added 1352 packages from 619 contributors and audited 1352 packages in 79.247s\
+\
+49 packages are looking for funding\
+  run `npm fund` for details\
+\
+found 1 high severity vulnerability\
+  run `npm audit fix` to fix them, or `npm audit` for details\
+
+\fs48 \cf2 3bady@abdullahs-mbp Capstone_test % npm run build\
+
+\fs24 \cf0 \
+> FEND-CAPSTONE@1.0.0 build /Users/3bady/Documents/KFUPM/Capstone_test\
+> webpack --config webpack.prod.js\
+\
+Hash: 4ab5b0d416bb04d81225\
+Version: webpack 4.44.1\
+Time: 1514ms\
+Built at: 08/18/2020 10:08:36 PM\
+       Asset       Size  Chunks             Chunk Names\
+./index.html  989 bytes          [emitted]  \
+     main.js   13.7 KiB       0  [emitted]  main\
+Entrypoint main = main.js\
+[1] ./src/client/styles/style.scss 578 bytes \{0\} [built]\
+[3] ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/client/styles/style.scss 4.71 KiB \{0\} [built]\
+[4] ./src/client/index.js + 1 modules 10.3 KiB \{0\} [built]\
+    | ./src/client/index.js 327 bytes [built]\
+    | ./src/client/js/app.js 9.95 KiB [built]\
+    + 2 hidden modules\
+Child HtmlWebpackCompiler:\
+     1 asset\
+    Entrypoint HtmlWebpackPlugin_0 = __child-HtmlWebpackPlugin_0\
+    [0] ./node_modules/html-webpack-plugin/lib/loader.js!./src/client/html/index.html 2 KiB \{0\} [built]\
+
+\fs48 \cf2 3bady@abdullahs-mbp Capstone_test % npm run dev\
+
+\fs24 \cf0 \
+> FEND-CAPSTONE@1.0.0 dev /Users/3bady/Documents/KFUPM/Capstone_test\
+> webpack-dev-server  --config webpack.dev.js --open\
+\
+[HPM] Proxy created: [Function: context]  ->  http://localhost:8000/\
+
+\f1 \uc0\u8505 
+\f0  
+\f2 \'a1\'b8
+\f0 wds
+\f2 \'a1\'b9
+\f0 : Project is running at http://localhost:8080/\
+
+\f1 \uc0\u8505 
+\f0  
+\f2 \'a1\'b8
+\f0 wds
+\f2 \'a1\'b9
+\f0 : webpack output is served from /\
+
+\f1 \uc0\u8505 
+\f0  
+\f2 \'a1\'b8
+\f0 wds
+\f2 \'a1\'b9
+\f0 : Content not from webpack is served from /Users/3bady/Documents/KFUPM/Capstone_test\
+
+\f1 \uc0\u8505 
+\f0  
+\f2 \'a1\'b8
+\f0 wdm
+\f2 \'a1\'b9
+\f0 : wait until bundle finished: /\
+clean-webpack-plugin: dry dist/index.html\
+clean-webpack-plugin: dry dist/main.js\
+
+\f1 \uc0\u8505 
+\f0  
+\f2 \'a1\'b8
+\f0 wdm
+\f2 \'a1\'b9
+\f0 : Hash: 7676d0dd526a389793c2\
+Version: webpack 4.44.1\
+Time: 2471ms\
+Built at: 08/18/2020 10:08:55 PM\
+                  Asset      Size  Chunks                   Chunk Names\
+           ./index.html  1.74 KiB          [emitted]        \
+                main.js   394 KiB    main  [emitted]        main\
+            main.js.map   454 KiB    main  [emitted] [dev]  main\
+      service-worker.js  3.36 KiB          [emitted]        \
+  service-worker.js.map   1.8 KiB          [emitted]        \
+    workbox-64f1e998.js  67.7 KiB          [emitted]        \
+workbox-64f1e998.js.map   114 KiB          [emitted]        \
+Entrypoint main = main.js main.js.map\
+chunk \{main\} main.js, main.js.map (main) 374 KiB [entry] [rendered]\
+    > main\
+ [0] multi (webpack)-dev-server/client?http://localhost:8080 ./src/client/index.js 40 bytes \{main\} [depth 0] [built]\
+     multi entry \
+ [./node_modules/ansi-html/index.js] 4.16 KiB \{main\} [depth 3] [built]\
+     cjs require ansi-html [./node_modules/webpack-dev-server/client/overlay.js] (webpack)-dev-server/client/overlay.js 4:15-35\
+ [./node_modules/ansi-regex/index.js] 135 bytes \{main\} [depth 3] [built]\
+     cjs require ansi-regex [./node_modules/strip-ansi/index.js] 2:16-37\
+ [./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/client/styles/style.scss] 22.9 KiB \{main\} [depth 3] [built]\
+     [exports: default]\
+     cjs require !!../../../node_modules/css-loader/dist/cjs.js!../../../node_modules/sass-loader/dist/cjs.js!./style.scss [./src/client/styles/style.scss] 2:26-142\
+ [./node_modules/css-loader/dist/runtime/api.js] 2.46 KiB \{main\} [depth 4] [built]\
+     harmony side effect evaluation ../../../node_modules/css-loader/dist/runtime/api.js [./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/client/styles/style.scss] 2:0-95\
+     harmony import specifier ../../../node_modules/css-loader/dist/runtime/api.js [./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/client/styles/style.scss] 3:30-57\
+ [./node_modules/events/events.js] 13.8 KiB \{main\} [depth 4] [built]\
+     cjs require events [./node_modules/webpack/hot/emitter.js] (webpack)/hot/emitter.js 1:19-36\
+ [./node_modules/html-entities/lib/html4-entities.js] 6.59 KiB \{main\} [depth 4] [built]\
+     cjs require ./html4-entities [./node_modules/html-entities/lib/index.js] 5:23-50\
+ [./node_modules/html-entities/lib/html5-entities.js] 47.9 KiB \{main\} [depth 4] [built]\
+     cjs require ./html5-entities [./node_modules/html-entities/lib/index.js] 7:23-50\
+ [./node_modules/html-entities/lib/index.js] 449 bytes \{main\} [depth 3] [built]\
+     cjs require html-entities [./node_modules/webpack-dev-server/client/overlay.js] (webpack)-dev-server/client/overlay.js 6:15-39\
+ [./node_modules/html-entities/lib/xml-entities.js] 2.96 KiB \{main\} [depth 4] [built]\
+     cjs require ./xml-entities [./node_modules/html-entities/lib/index.js] 3:21-46\
+ [./node_modules/loglevel/lib/loglevel.js] 8.41 KiB \{main\} [depth 3] [built]\
+     cjs require loglevel [./node_modules/webpack-dev-server/client/utils/log.js] (webpack)-dev-server/client/utils/log.js 3:10-29\
+ [./node_modules/node-libs-browser/node_modules/punycode/punycode.js] 14.3 KiB \{main\} [depth 4] [built]\
+     cjs require punycode [./node_modules/url/url.js] 24:15-34\
+ [./node_modules/querystring-es3/decode.js] 2.45 KiB \{main\} [depth 5] [built]\
+     cjs require ./decode [./node_modules/querystring-es3/index.js] 3:33-52\
+ [./node_modules/querystring-es3/encode.js] 2.48 KiB \{main\} [depth 5] [built]\
+     cjs require ./encode [./node_modules/querystring-es3/index.js] 4:37-56\
+ [./node_modules/querystring-es3/index.js] 127 bytes \{main\} [depth 4] [built]\
+     cjs require querystring [./node_modules/url/url.js] 100:18-40\
+ [./node_modules/sockjs-client/dist/sockjs.js] 181 KiB \{main\} [depth 4] [built]\
+     cjs require sockjs-client/dist/sockjs [./node_modules/webpack-dev-server/client/clients/SockJSClient.js] (webpack)-dev-server/client/clients/SockJSClient.js 28:13-49\
+ [./node_modules/strip-ansi/index.js] 161 bytes \{main\} [depth 2] [built]\
+     cjs require strip-ansi [./node_modules/webpack-dev-server/client/index.js?http://localhost:8080] (webpack)-dev-server/client?http://localhost:8080 6:16-37\
+ [./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js] 6.64 KiB \{main\} [depth 3] [built]\
+     cjs require !../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js [./src/client/styles/style.scss] 1:10-97\
+ [./node_modules/url/url.js] 22.8 KiB \{main\} [depth 3] [built]\
+     cjs require url [./node_modules/webpack-dev-server/client/utils/createSocketUrl.js] (webpack)-dev-server/client/utils/createSocketUrl.js 4:10-24\
+ [./node_modules/url/util.js] 314 bytes \{main\} [depth 4] [built]\
+     cjs require ./util [./node_modules/url/url.js] 25:11-28\
+ [./node_modules/webpack-dev-server/client/clients/BaseClient.js] (webpack)-dev-server/client/clients/BaseClient.js 1.03 KiB \{main\} [depth 4] [built]\
+     cjs require ./BaseClient [./node_modules/webpack-dev-server/client/clients/SockJSClient.js] (webpack)-dev-server/client/clients/SockJSClient.js 30:17-40\
+ [./node_modules/webpack-dev-server/client/clients/SockJSClient.js] (webpack)-dev-server/client/clients/SockJSClient.js 4.06 KiB \{main\} [depth 3] [built]\
+     require.resolve ./SockJSClient [./node_modules/webpack-dev-server/client/clients/SockJSClient.js] (webpack)-dev-server/client/clients/SockJSClient.js 73:13-46\
+     cjs require __webpack_dev_server_client__ [./node_modules/webpack-dev-server/client/socket.js] (webpack)-dev-server/client/socket.js 1:0-116\
+     cjs require ./clients/SockJSClient [./node_modules/webpack-dev-server/client/socket.js] (webpack)-dev-server/client/socket.js 15:0-33\
+ [./node_modules/webpack-dev-server/client/index.js?http://localhost:8080] (webpack)-dev-server/client?http://localhost:8080 4.29 KiB \{main\} [depth 1] [built]\
+     single entry /Users/3bady/Documents/KFUPM/Capstone_test/node_modules/webpack-dev-server/client/index.js?http://localhost:8080 [0] multi (webpack)-dev-server/client?http://localhost:8080 ./src/client/index.js main[0]\
+ [./node_modules/webpack-dev-server/client/overlay.js] (webpack)-dev-server/client/overlay.js 3.51 KiB \{main\} [depth 2] [built]\
+     cjs require ./overlay [./node_modules/webpack-dev-server/client/index.js?http://localhost:8080] (webpack)-dev-server/client?http://localhost:8080 10:14-34\
+ [./node_modules/webpack-dev-server/client/socket.js] (webpack)-dev-server/client/socket.js 1.53 KiB \{main\} [depth 2] [built]\
+     cjs require ./socket [./node_modules/webpack-dev-server/client/index.js?http://localhost:8080] (webpack)-dev-server/client?http://localhost:8080 8:13-32\
+ [./node_modules/webpack-dev-server/client/utils/createSocketUrl.js] (webpack)-dev-server/client/utils/createSocketUrl.js 2.91 KiB \{main\} [depth 2] [built]\
+     cjs require ./utils/createSocketUrl [./node_modules/webpack-dev-server/client/index.js?http://localhost:8080] (webpack)-dev-server/client?http://localhost:8080 20:22-56\
+ [./node_modules/webpack-dev-server/client/utils/getCurrentScriptSource.js] (webpack)-dev-server/client/utils/getCurrentScriptSource.js 658 bytes \{main\} [depth 3] [built]\
+     cjs require ./getCurrentScriptSource [./node_modules/webpack-dev-server/client/utils/createSocketUrl.js] (webpack)-dev-server/client/utils/createSocketUrl.js 6:29-64\
+ [./node_modules/webpack-dev-server/client/utils/log.js] (webpack)-dev-server/client/utils/log.js 964 bytes \{main\} [depth 2] [built]\
+     cjs require ./utils/log [./node_modules/webpack-dev-server/client/index.js?http://localhost:8080] (webpack)-dev-server/client?http://localhost:8080 12:15-37\
+     cjs require ./log [./node_modules/webpack-dev-server/client/utils/reloadApp.js] (webpack)-dev-server/client/utils/reloadApp.js 4:15-31\
+ [./node_modules/webpack-dev-server/client/utils/reloadApp.js] (webpack)-dev-server/client/utils/reloadApp.js 1.59 KiB \{main\} [depth 2] [built]\
+     cjs require ./utils/reloadApp [./node_modules/webpack-dev-server/client/index.js?http://localhost:8080] (webpack)-dev-server/client?http://localhost:8080 18:16-44\
+ [./node_modules/webpack-dev-server/client/utils/sendMessage.js] (webpack)-dev-server/client/utils/sendMessage.js 402 bytes \{main\} [depth 2] [built]\
+     cjs require ./utils/sendMessage [./node_modules/webpack-dev-server/client/index.js?http://localhost:8080] (webpack)-dev-server/client?http://localhost:8080 16:18-48\
+ [./node_modules/webpack/buildin/global.js] (webpack)/buildin/global.js 472 bytes \{main\} [depth 5] [built]\
+     cjs require global [./node_modules/node-libs-browser/node_modules/punycode/punycode.js] 1:0-47\
+     cjs require global [./node_modules/sockjs-client/dist/sockjs.js] 1:0-44\
+ [./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 497 bytes \{main\} [depth 5] [built]\
+     cjs require module [./node_modules/node-libs-browser/node_modules/punycode/punycode.js] 1:0-47\
+ [./node_modules/webpack/hot sync ^\\.\\/log$] (webpack)/hot sync nonrecursive ^\\.\\/log$ 170 bytes \{main\} [depth 2] [built]\
+     require.context webpack/hot [./node_modules/webpack-dev-server/client/index.js?http://localhost:8080] (webpack)-dev-server/client?http://localhost:8080 76:17-67\
+ [./node_modules/webpack/hot/emitter.js] (webpack)/hot/emitter.js 75 bytes \{main\} [depth 3] [built]\
+     cjs require webpack/hot/emitter [./node_modules/webpack-dev-server/client/utils/reloadApp.js] (webpack)-dev-server/client/utils/reloadApp.js 21:21-51\
+ [./node_modules/webpack/hot/log.js] (webpack)/hot/log.js 1.34 KiB \{main\} [depth 3] [optional] [built]\
+     context element ./log [./node_modules/webpack/hot sync ^\\.\\/log$] (webpack)/hot sync nonrecursive ^\\.\\/log$ ./log\
+ [./src/client/index.js] 327 bytes \{main\} [depth 1] [built]\
+     [no exports]\
+     single entry ./src/client/index.js [0] multi (webpack)-dev-server/client?http://localhost:8080 ./src/client/index.js main[1]\
+     single entry ./src/client/index.js  main\
+ [./src/client/js/app.js] 9.95 KiB \{main\} [depth 2] [built]\
+     [exports: onClick, performAction, createCard]\
+     harmony side effect evaluation ./js/app [./src/client/index.js] 10:0-36\
+     harmony side effect evaluation ./js/app [./src/client/index.js] 11:0-41\
+ [./src/client/styles/style.scss] 578 bytes \{main\} [depth 2] [built]\
+     harmony side effect evaluation ./styles/style.scss [./src/client/index.js] 9:0-28\
+\
+LOG from webpack.buildChunkGraph.visitModules\
+<t> prepare: 0.312428ms\
+<t> visiting: 0.178531ms\
+Child HtmlWebpackCompiler:\
+                          Asset      Size               Chunks  Chunk Names\
+    __child-HtmlWebpackPlugin_0  6.04 KiB  HtmlWebpackPlugin_0  HtmlWebpackPlugin_0\
+    Entrypoint HtmlWebpackPlugin_0 = __child-HtmlWebpackPlugin_0\
+    chunk \{HtmlWebpackPlugin_0\} __child-HtmlWebpackPlugin_0 (HtmlWebpackPlugin_0) 2 KiB [entry] [rendered]\
+        > /Users/3bady/Documents/KFUPM/Capstone_test/node_modules/html-webpack-plugin/lib/loader.js!/Users/3bady/Documents/KFUPM/Capstone_test/src/client/html/index.html HtmlWebpackPlugin_0\
+     [./node_modules/html-webpack-plugin/lib/loader.js!./src/client/html/index.html] 2 KiB \{HtmlWebpackPlugin_0\} [depth 0] [built]\
+         single entry /Users/3bady/Documents/KFUPM/Capstone_test/node_modules/html-webpack-plugin/lib/loader.js!/Users/3bady/Documents/KFUPM/Capstone_test/src/client/html/index.html  HtmlWebpackPlugin_0\
+    \
+    LOG from webpack.buildChunkGraph.visitModules\
+    <t> prepare: 0.350978ms\
+    <t> visiting: 0.092272ms\
+
+\f1 \uc0\u8505 
+\f0  
+\f2 \'a1\'b8
+\f0 wdm
+\f2 \'a1\'b9
+\f0 : Compiled successfully.\
+
+\f1 \uc0\u8505 
+\f0  
+\f2 \'a1\'b8
+\f0 wdm
+\f2 \'a1\'b9
+\f0 : Compiling...\
+clean-webpack-plugin: dry dist/index.html\
+
+\f3 \uc0\u9888 
+\f0  
+\f2 \'a1\'b8
+\f0 wdm
+\f2 \'a1\'b9
+\f0 : Hash: b6c389ca360c16c23096\
+Version: webpack 4.44.1\
+Time: 779ms\
+Built at: 08/18/2020 10:09:05 PM\
+                  Asset      Size  Chunks             Chunk Names\
+                main.js   394 KiB    main             main\
+            main.js.map   454 KiB    main  [dev]      main\
+      service-worker.js  3.28 KiB          [emitted]  \
+  service-worker.js.map  1.66 KiB          [emitted]  \
+    workbox-64f1e998.js  67.7 KiB          [emitted]  \
+workbox-64f1e998.js.map   114 KiB          [emitted]  \
+Entrypoint main = main.js main.js.map\
+chunk \{main\} main.js, main.js.map (main) 374 KiB [entry]\
+    > main\
+ [0] multi (webpack)-dev-server/client?http://localhost:8080 ./src/client/index.js 40 bytes \{main\} [depth 0]\
+     multi entry \
+ [./node_modules/ansi-html/index.js] 4.16 KiB \{main\} [depth 3]\
+     cjs require ansi-html [./node_modules/webpack-dev-server/client/overlay.js] (webpack)-dev-server/client/overlay.js 4:15-35\
+ [./node_modules/ansi-regex/index.js] 135 bytes \{main\} [depth 3]\
+     cjs require ansi-regex [./node_modules/strip-ansi/index.js] 2:16-37\
+ [./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/client/styles/style.scss] 22.9 KiB \{main\} [depth 3]\
+     [exports: default]\
+     cjs require !!../../../node_modules/css-loader/dist/cjs.js!../../../node_modules/sass-loader/dist/cjs.js!./style.scss [./src/client/styles/style.scss] 2:26-142\
+ [./node_modules/css-loader/dist/runtime/api.js] 2.46 KiB \{main\} [depth 4]\
+     harmony side effect evaluation ../../../node_modules/css-loader/dist/runtime/api.js [./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/client/styles/style.scss] 2:0-95\
+     harmony import specifier ../../../node_modules/css-loader/dist/runtime/api.js [./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/client/styles/style.scss] 3:30-57\
+ [./node_modules/events/events.js] 13.8 KiB \{main\} [depth 4]\
+     cjs require events [./node_modules/webpack/hot/emitter.js] (webpack)/hot/emitter.js 1:19-36\
+ [./node_modules/html-entities/lib/html4-entities.js] 6.59 KiB \{main\} [depth 4]\
+     cjs require ./html4-entities [./node_modules/html-entities/lib/index.js] 5:23-50\
+ [./node_modules/html-entities/lib/html5-entities.js] 47.9 KiB \{main\} [depth 4]\
+     cjs require ./html5-entities [./node_modules/html-entities/lib/index.js] 7:23-50\
+ [./node_modules/html-entities/lib/index.js] 449 bytes \{main\} [depth 3]\
+     cjs require html-entities [./node_modules/webpack-dev-server/client/overlay.js] (webpack)-dev-server/client/overlay.js 6:15-39\
+ [./node_modules/html-entities/lib/xml-entities.js] 2.96 KiB \{main\} [depth 4]\
+     cjs require ./xml-entities [./node_modules/html-entities/lib/index.js] 3:21-46\
+ [./node_modules/loglevel/lib/loglevel.js] 8.41 KiB \{main\} [depth 3]\
+     cjs require loglevel [./node_modules/webpack-dev-server/client/utils/log.js] (webpack)-dev-server/client/utils/log.js 3:10-29\
+ [./node_modules/node-libs-browser/node_modules/punycode/punycode.js] 14.3 KiB \{main\} [depth 4]\
+     cjs require punycode [./node_modules/url/url.js] 24:15-34\
+ [./node_modules/querystring-es3/decode.js] 2.45 KiB \{main\} [depth 5]\
+     cjs require ./decode [./node_modules/querystring-es3/index.js] 3:33-52\
+ [./node_modules/querystring-es3/encode.js] 2.48 KiB \{main\} [depth 5]\
+     cjs require ./encode [./node_modules/querystring-es3/index.js] 4:37-56\
+ [./node_modules/querystring-es3/index.js] 127 bytes \{main\} [depth 4]\
+     cjs require querystring [./node_modules/url/url.js] 100:18-40\
+ [./node_modules/sockjs-client/dist/sockjs.js] 181 KiB \{main\} [depth 4]\
+     cjs require sockjs-client/dist/sockjs [./node_modules/webpack-dev-server/client/clients/SockJSClient.js] (webpack)-dev-server/client/clients/SockJSClient.js 28:13-49\
+ [./node_modules/strip-ansi/index.js] 161 bytes \{main\} [depth 2] [built]\
+     cjs require strip-ansi [./node_modules/webpack-dev-server/client/index.js?http://localhost:8080] (webpack)-dev-server/client?http://localhost:8080 6:16-37\
+ [./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js] 6.64 KiB \{main\} [depth 3]\
+     cjs require !../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js [./src/client/styles/style.scss] 1:10-97\
+ [./node_modules/url/url.js] 22.8 KiB \{main\} [depth 3]\
+     cjs require url [./node_modules/webpack-dev-server/client/utils/createSocketUrl.js] (webpack)-dev-server/client/utils/createSocketUrl.js 4:10-24\
+ [./node_modules/url/util.js] 314 bytes \{main\} [depth 4]\
+     cjs require ./util [./node_modules/url/url.js] 25:11-28\
+ [./node_modules/webpack-dev-server/client/clients/BaseClient.js] (webpack)-dev-server/client/clients/BaseClient.js 1.03 KiB \{main\} [depth 4]\
+     cjs require ./BaseClient [./node_modules/webpack-dev-server/client/clients/SockJSClient.js] (webpack)-dev-server/client/clients/SockJSClient.js 30:17-40\
+ [./node_modules/webpack-dev-server/client/clients/SockJSClient.js] (webpack)-dev-server/client/clients/SockJSClient.js 4.06 KiB \{main\} [depth 3]\
+     require.resolve ./SockJSClient [./node_modules/webpack-dev-server/client/clients/SockJSClient.js] (webpack)-dev-server/client/clients/SockJSClient.js 73:13-46\
+     cjs require __webpack_dev_server_client__ [./node_modules/webpack-dev-server/client/socket.js] (webpack)-dev-server/client/socket.js 1:0-116\
+     cjs require ./clients/SockJSClient [./node_modules/webpack-dev-server/client/socket.js] (webpack)-dev-server/client/socket.js 15:0-33\
+ [./node_modules/webpack-dev-server/client/index.js?http://localhost:8080] (webpack)-dev-server/client?http://localhost:8080 4.29 KiB \{main\} [depth 1]\
+     single entry /Users/3bady/Documents/KFUPM/Capstone_test/node_modules/webpack-dev-server/client/index.js?http://localhost:8080 [0] multi (webpack)-dev-server/client?http://localhost:8080 ./src/client/index.js main[0]\
+ [./node_modules/webpack-dev-server/client/overlay.js] (webpack)-dev-server/client/overlay.js 3.51 KiB \{main\} [depth 2]\
+     cjs require ./overlay [./node_modules/webpack-dev-server/client/index.js?http://localhost:8080] (webpack)-dev-server/client?http://localhost:8080 10:14-34\
+ [./node_modules/webpack-dev-server/client/socket.js] (webpack)-dev-server/client/socket.js 1.53 KiB \{main\} [depth 2]\
+     cjs require ./socket [./node_modules/webpack-dev-server/client/index.js?http://localhost:8080] (webpack)-dev-server/client?http://localhost:8080 8:13-32\
+ [./node_modules/webpack-dev-server/client/utils/createSocketUrl.js] (webpack)-dev-server/client/utils/createSocketUrl.js 2.91 KiB \{main\} [depth 2]\
+     cjs require ./utils/createSocketUrl [./node_modules/webpack-dev-server/client/index.js?http://localhost:8080] (webpack)-dev-server/client?http://localhost:8080 20:22-56\
+ [./node_modules/webpack-dev-server/client/utils/getCurrentScriptSource.js] (webpack)-dev-server/client/utils/getCurrentScriptSource.js 658 bytes \{main\} [depth 3]\
+     cjs require ./getCurrentScriptSource [./node_modules/webpack-dev-server/client/utils/createSocketUrl.js] (webpack)-dev-server/client/utils/createSocketUrl.js 6:29-64\
+ [./node_modules/webpack-dev-server/client/utils/log.js] (webpack)-dev-server/client/utils/log.js 964 bytes \{main\} [depth 2]\
+     cjs require ./utils/log [./node_modules/webpack-dev-server/client/index.js?http://localhost:8080] (webpack)-dev-server/client?http://localhost:8080 12:15-37\
+     cjs require ./log [./node_modules/webpack-dev-server/client/utils/reloadApp.js] (webpack)-dev-server/client/utils/reloadApp.js 4:15-31\
+ [./node_modules/webpack-dev-server/client/utils/reloadApp.js] (webpack)-dev-server/client/utils/reloadApp.js 1.59 KiB \{main\} [depth 2]\
+     cjs require ./utils/reloadApp [./node_modules/webpack-dev-server/client/index.js?http://localhost:8080] (webpack)-dev-server/client?http://localhost:8080 18:16-44\
+ [./node_modules/webpack-dev-server/client/utils/sendMessage.js] (webpack)-dev-server/client/utils/sendMessage.js 402 bytes \{main\} [depth 2]\
+     cjs require ./utils/sendMessage [./node_modules/webpack-dev-server/client/index.js?http://localhost:8080] (webpack)-dev-server/client?http://localhost:8080 16:18-48\
+ [./node_modules/webpack/buildin/global.js] (webpack)/buildin/global.js 472 bytes \{main\} [depth 5]\
+     cjs require global [./node_modules/node-libs-browser/node_modules/punycode/punycode.js] 1:0-47\
+     cjs require global [./node_modules/sockjs-client/dist/sockjs.js] 1:0-44\
+ [./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 497 bytes \{main\} [depth 5]\
+     cjs require module [./node_modules/node-libs-browser/node_modules/punycode/punycode.js] 1:0-47\
+ [./node_modules/webpack/hot sync ^\\.\\/log$] (webpack)/hot sync nonrecursive ^\\.\\/log$ 170 bytes \{main\} [depth 2]\
+     require.context webpack/hot [./node_modules/webpack-dev-server/client/index.js?http://localhost:8080] (webpack)-dev-server/client?http://localhost:8080 76:17-67\
+ [./node_modules/webpack/hot/emitter.js] (webpack)/hot/emitter.js 75 bytes \{main\} [depth 3]\
+     cjs require webpack/hot/emitter [./node_modules/webpack-dev-server/client/utils/reloadApp.js] (webpack)-dev-server/client/utils/reloadApp.js 21:21-51\
+ [./node_modules/webpack/hot/log.js] (webpack)/hot/log.js 1.34 KiB \{main\} [depth 3] [optional]\
+     context element ./log [./node_modules/webpack/hot sync ^\\.\\/log$] (webpack)/hot sync nonrecursive ^\\.\\/log$ ./log\
+ [./src/client/index.js] 327 bytes \{main\} [depth 1]\
+     [no exports]\
+     single entry ./src/client/index.js [0] multi (webpack)-dev-server/client?http://localhost:8080 ./src/client/index.js main[1]\
+     single entry ./src/client/index.js  main\
+ [./src/client/js/app.js] 9.95 KiB \{main\} [depth 2]\
+     [exports: onClick, performAction, createCard]\
+     harmony side effect evaluation ./js/app [./src/client/index.js] 10:0-36\
+     harmony side effect evaluation ./js/app [./src/client/index.js] 11:0-41\
+ [./src/client/styles/style.scss] 578 bytes \{main\} [depth 2]\
+     harmony side effect evaluation ./styles/style.scss [./src/client/index.js] 9:0-28\
+\
+LOG from webpack.buildChunkGraph.visitModules\
+<t> prepare: 0.342201ms\
+<t> visiting: 0.26153ms\
+\
+WARNING in GenerateSW has been called multiple times, perhaps due to running webpack in --watch mode. The precache manifest generated after the first call may be inaccurate! Please see https://github.com/GoogleChrome/workbox/issues/1790 for more information.\
+
+\f1 \uc0\u8505 
+\f0  
+\f2 \'a1\'b8
+\f0 wdm
+\f2 \'a1\'b9
+\f0 : Compiled with warnings.\
+
+\f1 \uc0\u8505 
+\f0  
+\f2 \'a1\'b8
+\f0 wdm
+\f2 \'a1\'b9
+\f0 : Compiling...\
+
+\f3 \uc0\u9888 
+\f0  
+\f2 \'a1\'b8
+\f0 wdm
+\f2 \'a1\'b9
+\f0 : Hash: b6c389ca360c16c23096\
+Version: webpack 4.44.1\
+Time: 755ms\
+Built at: 08/18/2020 10:09:22 PM\
+                  Asset      Size  Chunks             Chunk Names\
+                main.js   394 KiB    main             main\
+            main.js.map   454 KiB    main  [dev]      main\
+      service-worker.js  3.28 KiB          [emitted]  \
+  service-worker.js.map  1.66 KiB          [emitted]  \
+    workbox-64f1e998.js  67.7 KiB          [emitted]  \
+workbox-64f1e998.js.map   114 KiB          [emitted]  \
+Entrypoint main = main.js main.js.map\
+chunk \{main\} main.js, main.js.map (main) 374 KiB [entry]\
+    > main\
+ [0] multi (webpack)-dev-server/client?http://localhost:8080 ./src/client/index.js 40 bytes \{main\} [depth 0]\
+     multi entry \
+ [./node_modules/ansi-html/index.js] 4.16 KiB \{main\} [depth 3]\
+     cjs require ansi-html [./node_modules/webpack-dev-server/client/overlay.js] (webpack)-dev-server/client/overlay.js 4:15-35\
+ [./node_modules/ansi-regex/index.js] 135 bytes \{main\} [depth 3]\
+     cjs require ansi-regex [./node_modules/strip-ansi/index.js] 2:16-37\
+ [./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/client/styles/style.scss] 22.9 KiB \{main\} [depth 3]\
+     [exports: default]\
+     cjs require !!../../../node_modules/css-loader/dist/cjs.js!../../../node_modules/sass-loader/dist/cjs.js!./style.scss [./src/client/styles/style.scss] 2:26-142\
+ [./node_modules/css-loader/dist/runtime/api.js] 2.46 KiB \{main\} [depth 4]\
+     harmony side effect evaluation ../../../node_modules/css-loader/dist/runtime/api.js [./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/client/styles/style.scss] 2:0-95\
+     harmony import specifier ../../../node_modules/css-loader/dist/runtime/api.js [./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/client/styles/style.scss] 3:30-57\
+ [./node_modules/events/events.js] 13.8 KiB \{main\} [depth 4]\
+     cjs require events [./node_modules/webpack/hot/emitter.js] (webpack)/hot/emitter.js 1:19-36\
+ [./node_modules/html-entities/lib/html4-entities.js] 6.59 KiB \{main\} [depth 4]\
+     cjs require ./html4-entities [./node_modules/html-entities/lib/index.js] 5:23-50\
+ [./node_modules/html-entities/lib/html5-entities.js] 47.9 KiB \{main\} [depth 4]\
+     cjs require ./html5-entities [./node_modules/html-entities/lib/index.js] 7:23-50\
+ [./node_modules/html-entities/lib/index.js] 449 bytes \{main\} [depth 3]\
+     cjs require html-entities [./node_modules/webpack-dev-server/client/overlay.js] (webpack)-dev-server/client/overlay.js 6:15-39\
+ [./node_modules/html-entities/lib/xml-entities.js] 2.96 KiB \{main\} [depth 4]\
+     cjs require ./xml-entities [./node_modules/html-entities/lib/index.js] 3:21-46\
+ [./node_modules/loglevel/lib/loglevel.js] 8.41 KiB \{main\} [depth 3]\
+     cjs require loglevel [./node_modules/webpack-dev-server/client/utils/log.js] (webpack)-dev-server/client/utils/log.js 3:10-29\
+ [./node_modules/node-libs-browser/node_modules/punycode/punycode.js] 14.3 KiB \{main\} [depth 4]\
+     cjs require punycode [./node_modules/url/url.js] 24:15-34\
+ [./node_modules/querystring-es3/decode.js] 2.45 KiB \{main\} [depth 5] [built]\
+     cjs require ./decode [./node_modules/querystring-es3/index.js] 3:33-52\
+ [./node_modules/querystring-es3/encode.js] 2.48 KiB \{main\} [depth 5] [built]\
+     cjs require ./encode [./node_modules/querystring-es3/index.js] 4:37-56\
+ [./node_modules/querystring-es3/index.js] 127 bytes \{main\} [depth 4] [built]\
+     cjs require querystring [./node_modules/url/url.js] 100:18-40\
+ [./node_modules/sockjs-client/dist/sockjs.js] 181 KiB \{main\} [depth 4]\
+     cjs require sockjs-client/dist/sockjs [./node_modules/webpack-dev-server/client/clients/SockJSClient.js] (webpack)-dev-server/client/clients/SockJSClient.js 28:13-49\
+ [./node_modules/strip-ansi/index.js] 161 bytes \{main\} [depth 2]\
+     cjs require strip-ansi [./node_modules/webpack-dev-server/client/index.js?http://localhost:8080] (webpack)-dev-server/client?http://localhost:8080 6:16-37\
+ [./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js] 6.64 KiB \{main\} [depth 3]\
+     cjs require !../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js [./src/client/styles/style.scss] 1:10-97\
+ [./node_modules/url/url.js] 22.8 KiB \{main\} [depth 3]\
+     cjs require url [./node_modules/webpack-dev-server/client/utils/createSocketUrl.js] (webpack)-dev-server/client/utils/createSocketUrl.js 4:10-24\
+ [./node_modules/url/util.js] 314 bytes \{main\} [depth 4]\
+     cjs require ./util [./node_modules/url/url.js] 25:11-28\
+ [./node_modules/webpack-dev-server/client/clients/BaseClient.js] (webpack)-dev-server/client/clients/BaseClient.js 1.03 KiB \{main\} [depth 4]\
+     cjs require ./BaseClient [./node_modules/webpack-dev-server/client/clients/SockJSClient.js] (webpack)-dev-server/client/clients/SockJSClient.js 30:17-40\
+ [./node_modules/webpack-dev-server/client/clients/SockJSClient.js] (webpack)-dev-server/client/clients/SockJSClient.js 4.06 KiB \{main\} [depth 3]\
+     require.resolve ./SockJSClient [./node_modules/webpack-dev-server/client/clients/SockJSClient.js] (webpack)-dev-server/client/clients/SockJSClient.js 73:13-46\
+     cjs require __webpack_dev_server_client__ [./node_modules/webpack-dev-server/client/socket.js] (webpack)-dev-server/client/socket.js 1:0-116\
+     cjs require ./clients/SockJSClient [./node_modules/webpack-dev-server/client/socket.js] (webpack)-dev-server/client/socket.js 15:0-33\
+ [./node_modules/webpack-dev-server/client/index.js?http://localhost:8080] (webpack)-dev-server/client?http://localhost:8080 4.29 KiB \{main\} [depth 1]\
+     single entry /Users/3bady/Documents/KFUPM/Capstone_test/node_modules/webpack-dev-server/client/index.js?http://localhost:8080 [0] multi (webpack)-dev-server/client?http://localhost:8080 ./src/client/index.js main[0]\
+ [./node_modules/webpack-dev-server/client/overlay.js] (webpack)-dev-server/client/overlay.js 3.51 KiB \{main\} [depth 2]\
+     cjs require ./overlay [./node_modules/webpack-dev-server/client/index.js?http://localhost:8080] (webpack)-dev-server/client?http://localhost:8080 10:14-34\
+ [./node_modules/webpack-dev-server/client/socket.js] (webpack)-dev-server/client/socket.js 1.53 KiB \{main\} [depth 2]\
+     cjs require ./socket [./node_modules/webpack-dev-server/client/index.js?http://localhost:8080] (webpack)-dev-server/client?http://localhost:8080 8:13-32\
+ [./node_modules/webpack-dev-server/client/utils/createSocketUrl.js] (webpack)-dev-server/client/utils/createSocketUrl.js 2.91 KiB \{main\} [depth 2]\
+     cjs require ./utils/createSocketUrl [./node_modules/webpack-dev-server/client/index.js?http://localhost:8080] (webpack)-dev-server/client?http://localhost:8080 20:22-56\
+ [./node_modules/webpack-dev-server/client/utils/getCurrentScriptSource.js] (webpack)-dev-server/client/utils/getCurrentScriptSource.js 658 bytes \{main\} [depth 3]\
+     cjs require ./getCurrentScriptSource [./node_modules/webpack-dev-server/client/utils/createSocketUrl.js] (webpack)-dev-server/client/utils/createSocketUrl.js 6:29-64\
+ [./node_modules/webpack-dev-server/client/utils/log.js] (webpack)-dev-server/client/utils/log.js 964 bytes \{main\} [depth 2]\
+     cjs require ./utils/log [./node_modules/webpack-dev-server/client/index.js?http://localhost:8080] (webpack)-dev-server/client?http://localhost:8080 12:15-37\
+     cjs require ./log [./node_modules/webpack-dev-server/client/utils/reloadApp.js] (webpack)-dev-server/client/utils/reloadApp.js 4:15-31\
+ [./node_modules/webpack-dev-server/client/utils/reloadApp.js] (webpack)-dev-server/client/utils/reloadApp.js 1.59 KiB \{main\} [depth 2]\
+     cjs require ./utils/reloadApp [./node_modules/webpack-dev-server/client/index.js?http://localhost:8080] (webpack)-dev-server/client?http://localhost:8080 18:16-44\
+ [./node_modules/webpack-dev-server/client/utils/sendMessage.js] (webpack)-dev-server/client/utils/sendMessage.js 402 bytes \{main\} [depth 2]\
+     cjs require ./utils/sendMessage [./node_modules/webpack-dev-server/client/index.js?http://localhost:8080] (webpack)-dev-server/client?http://localhost:8080 16:18-48\
+ [./node_modules/webpack/buildin/global.js] (webpack)/buildin/global.js 472 bytes \{main\} [depth 5]\
+     cjs require global [./node_modules/node-libs-browser/node_modules/punycode/punycode.js] 1:0-47\
+     cjs require global [./node_modules/sockjs-client/dist/sockjs.js] 1:0-44\
+ [./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 497 bytes \{main\} [depth 5]\
+     cjs require module [./node_modules/node-libs-browser/node_modules/punycode/punycode.js] 1:0-47\
+ [./node_modules/webpack/hot sync ^\\.\\/log$] (webpack)/hot sync nonrecursive ^\\.\\/log$ 170 bytes \{main\} [depth 2]\
+     require.context webpack/hot [./node_modules/webpack-dev-server/client/index.js?http://localhost:8080] (webpack)-dev-server/client?http://localhost:8080 76:17-67\
+ [./node_modules/webpack/hot/emitter.js] (webpack)/hot/emitter.js 75 bytes \{main\} [depth 3]\
+     cjs require webpack/hot/emitter [./node_modules/webpack-dev-server/client/utils/reloadApp.js] (webpack)-dev-server/client/utils/reloadApp.js 21:21-51\
+ [./node_modules/webpack/hot/log.js] (webpack)/hot/log.js 1.34 KiB \{main\} [depth 3] [optional]\
+     context element ./log [./node_modules/webpack/hot sync ^\\.\\/log$] (webpack)/hot sync nonrecursive ^\\.\\/log$ ./log\
+ [./src/client/index.js] 327 bytes \{main\} [depth 1]\
+     [no exports]\
+     single entry ./src/client/index.js [0] multi (webpack)-dev-server/client?http://localhost:8080 ./src/client/index.js main[1]\
+     single entry ./src/client/index.js  main\
+ [./src/client/js/app.js] 9.95 KiB \{main\} [depth 2]\
+     [exports: onClick, performAction, createCard]\
+     harmony side effect evaluation ./js/app [./src/client/index.js] 10:0-36\
+     harmony side effect evaluation ./js/app [./src/client/index.js] 11:0-41\
+ [./src/client/styles/style.scss] 578 bytes \{main\} [depth 2]\
+     harmony side effect evaluation ./styles/style.scss [./src/client/index.js] 9:0-28\
+\
+LOG from webpack.buildChunkGraph.visitModules\
+<t> prepare: 0.189514ms\
+<t> visiting: 0.123657ms\
+\
+WARNING in GenerateSW has been called multiple times, perhaps due to running webpack in --watch mode. The precache manifest generated after the first call may be inaccurate! Please see https://github.com/GoogleChrome/workbox/issues/1790 for more information.\
+
+\f1 \uc0\u8505 
+\f0  
+\f2 \'a1\'b8
+\f0 wdm
+\f2 \'a1\'b9
+\f0 : Compiled with warnings.\
+
+\f1 \uc0\u8505 
+\f0  
+\f2 \'a1\'b8
+\f0 wdm
+\f2 \'a1\'b9
+\f0 : Compiling...\
+
+\f3 \uc0\u9888 
+\f0  
+\f2 \'a1\'b8
+\f0 wdm
+\f2 \'a1\'b9
+\f0 : Hash: b6c389ca360c16c23096\
+Version: webpack 4.44.1\
+Time: 494ms\
+Built at: 08/18/2020 10:09:27 PM\
+                  Asset      Size  Chunks             Chunk Names\
+                main.js   394 KiB    main             main\
+            main.js.map   454 KiB    main  [dev]      main\
+      service-worker.js  3.28 KiB          [emitted]  \
+  service-worker.js.map  1.66 KiB          [emitted]  \
+    workbox-64f1e998.js  67.7 KiB          [emitted]  \
+workbox-64f1e998.js.map   114 KiB          [emitted]  \
+Entrypoint main = main.js main.js.map\
+chunk \{main\} main.js, main.js.map (main) 374 KiB [entry]\
+    > main\
+ [0] multi (webpack)-dev-server/client?http://localhost:8080 ./src/client/index.js 40 bytes \{main\} [depth 0]\
+     multi entry \
+ [./node_modules/ansi-html/index.js] 4.16 KiB \{main\} [depth 3]\
+     cjs require ansi-html [./node_modules/webpack-dev-server/client/overlay.js] (webpack)-dev-server/client/overlay.js 4:15-35\
+ [./node_modules/ansi-regex/index.js] 135 bytes \{main\} [depth 3] [built]\
+     cjs require ansi-regex [./node_modules/strip-ansi/index.js] 2:16-37\
+ [./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/client/styles/style.scss] 22.9 KiB \{main\} [depth 3]\
+     [exports: default]\
+     cjs require !!../../../node_modules/css-loader/dist/cjs.js!../../../node_modules/sass-loader/dist/cjs.js!./style.scss [./src/client/styles/style.scss] 2:26-142\
+ [./node_modules/css-loader/dist/runtime/api.js] 2.46 KiB \{main\} [depth 4]\
+     harmony side effect evaluation ../../../node_modules/css-loader/dist/runtime/api.js [./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/client/styles/style.scss] 2:0-95\
+     harmony import specifier ../../../node_modules/css-loader/dist/runtime/api.js [./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/client/styles/style.scss] 3:30-57\
+ [./node_modules/events/events.js] 13.8 KiB \{main\} [depth 4]\
+     cjs require events [./node_modules/webpack/hot/emitter.js] (webpack)/hot/emitter.js 1:19-36\
+ [./node_modules/html-entities/lib/html4-entities.js] 6.59 KiB \{main\} [depth 4]\
+     cjs require ./html4-entities [./node_modules/html-entities/lib/index.js] 5:23-50\
+ [./node_modules/html-entities/lib/html5-entities.js] 47.9 KiB \{main\} [depth 4]\
+     cjs require ./html5-entities [./node_modules/html-entities/lib/index.js] 7:23-50\
+ [./node_modules/html-entities/lib/index.js] 449 bytes \{main\} [depth 3]\
+     cjs require html-entities [./node_modules/webpack-dev-server/client/overlay.js] (webpack)-dev-server/client/overlay.js 6:15-39\
+ [./node_modules/html-entities/lib/xml-entities.js] 2.96 KiB \{main\} [depth 4]\
+     cjs require ./xml-entities [./node_modules/html-entities/lib/index.js] 3:21-46\
+ [./node_modules/loglevel/lib/loglevel.js] 8.41 KiB \{main\} [depth 3]\
+     cjs require loglevel [./node_modules/webpack-dev-server/client/utils/log.js] (webpack)-dev-server/client/utils/log.js 3:10-29\
+ [./node_modules/node-libs-browser/node_modules/punycode/punycode.js] 14.3 KiB \{main\} [depth 4]\
+     cjs require punycode [./node_modules/url/url.js] 24:15-34\
+ [./node_modules/querystring-es3/decode.js] 2.45 KiB \{main\} [depth 5]\
+     cjs require ./decode [./node_modules/querystring-es3/index.js] 3:33-52\
+ [./node_modules/querystring-es3/encode.js] 2.48 KiB \{main\} [depth 5]\
+     cjs require ./encode [./node_modules/querystring-es3/index.js] 4:37-56\
+ [./node_modules/querystring-es3/index.js] 127 bytes \{main\} [depth 4]\
+     cjs require querystring [./node_modules/url/url.js] 100:18-40\
+ [./node_modules/sockjs-client/dist/sockjs.js] 181 KiB \{main\} [depth 4]\
+     cjs require sockjs-client/dist/sockjs [./node_modules/webpack-dev-server/client/clients/SockJSClient.js] (webpack)-dev-server/client/clients/SockJSClient.js 28:13-49\
+ [./node_modules/strip-ansi/index.js] 161 bytes \{main\} [depth 2]\
+     cjs require strip-ansi [./node_modules/webpack-dev-server/client/index.js?http://localhost:8080] (webpack)-dev-server/client?http://localhost:8080 6:16-37\
+ [./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js] 6.64 KiB \{main\} [depth 3]\
+     cjs require !../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js [./src/client/styles/style.scss] 1:10-97\
+ [./node_modules/url/url.js] 22.8 KiB \{main\} [depth 3]\
+     cjs require url [./node_modules/webpack-dev-server/client/utils/createSocketUrl.js] (webpack)-dev-server/client/utils/createSocketUrl.js 4:10-24\
+ [./node_modules/url/util.js] 314 bytes \{main\} [depth 4]\
+     cjs require ./util [./node_modules/url/url.js] 25:11-28\
+ [./node_modules/webpack-dev-server/client/clients/BaseClient.js] (webpack)-dev-server/client/clients/BaseClient.js 1.03 KiB \{main\} [depth 4]\
+     cjs require ./BaseClient [./node_modules/webpack-dev-server/client/clients/SockJSClient.js] (webpack)-dev-server/client/clients/SockJSClient.js 30:17-40\
+ [./node_modules/webpack-dev-server/client/clients/SockJSClient.js] (webpack)-dev-server/client/clients/SockJSClient.js 4.06 KiB \{main\} [depth 3]\
+     require.resolve ./SockJSClient [./node_modules/webpack-dev-server/client/clients/SockJSClient.js] (webpack)-dev-server/client/clients/SockJSClient.js 73:13-46\
+     cjs require __webpack_dev_server_client__ [./node_modules/webpack-dev-server/client/socket.js] (webpack)-dev-server/client/socket.js 1:0-116\
+     cjs require ./clients/SockJSClient [./node_modules/webpack-dev-server/client/socket.js] (webpack)-dev-server/client/socket.js 15:0-33\
+ [./node_modules/webpack-dev-server/client/index.js?http://localhost:8080] (webpack)-dev-server/client?http://localhost:8080 4.29 KiB \{main\} [depth 1]\
+     single entry /Users/3bady/Documents/KFUPM/Capstone_test/node_modules/webpack-dev-server/client/index.js?http://localhost:8080 [0] multi (webpack)-dev-server/client?http://localhost:8080 ./src/client/index.js main[0]\
+ [./node_modules/webpack-dev-server/client/overlay.js] (webpack)-dev-server/client/overlay.js 3.51 KiB \{main\} [depth 2]\
+     cjs require ./overlay [./node_modules/webpack-dev-server/client/index.js?http://localhost:8080] (webpack)-dev-server/client?http://localhost:8080 10:14-34\
+ [./node_modules/webpack-dev-server/client/socket.js] (webpack)-dev-server/client/socket.js 1.53 KiB \{main\} [depth 2]\
+     cjs require ./socket [./node_modules/webpack-dev-server/client/index.js?http://localhost:8080] (webpack)-dev-server/client?http://localhost:8080 8:13-32\
+ [./node_modules/webpack-dev-server/client/utils/createSocketUrl.js] (webpack)-dev-server/client/utils/createSocketUrl.js 2.91 KiB \{main\} [depth 2]\
+     cjs require ./utils/createSocketUrl [./node_modules/webpack-dev-server/client/index.js?http://localhost:8080] (webpack)-dev-server/client?http://localhost:8080 20:22-56\
+ [./node_modules/webpack-dev-server/client/utils/getCurrentScriptSource.js] (webpack)-dev-server/client/utils/getCurrentScriptSource.js 658 bytes \{main\} [depth 3]\
+     cjs require ./getCurrentScriptSource [./node_modules/webpack-dev-server/client/utils/createSocketUrl.js] (webpack)-dev-server/client/utils/createSocketUrl.js 6:29-64\
+ [./node_modules/webpack-dev-server/client/utils/log.js] (webpack)-dev-server/client/utils/log.js 964 bytes \{main\} [depth 2]\
+     cjs require ./utils/log [./node_modules/webpack-dev-server/client/index.js?http://localhost:8080] (webpack)-dev-server/client?http://localhost:8080 12:15-37\
+     cjs require ./log [./node_modules/webpack-dev-server/client/utils/reloadApp.js] (webpack)-dev-server/client/utils/reloadApp.js 4:15-31\
+ [./node_modules/webpack-dev-server/client/utils/reloadApp.js] (webpack)-dev-server/client/utils/reloadApp.js 1.59 KiB \{main\} [depth 2]\
+     cjs require ./utils/reloadApp [./node_modules/webpack-dev-server/client/index.js?http://localhost:8080] (webpack)-dev-server/client?http://localhost:8080 18:16-44\
+ [./node_modules/webpack-dev-server/client/utils/sendMessage.js] (webpack)-dev-server/client/utils/sendMessage.js 402 bytes \{main\} [depth 2]\
+     cjs require ./utils/sendMessage [./node_modules/webpack-dev-server/client/index.js?http://localhost:8080] (webpack)-dev-server/client?http://localhost:8080 16:18-48\
+ [./node_modules/webpack/buildin/global.js] (webpack)/buildin/global.js 472 bytes \{main\} [depth 5]\
+     cjs require global [./node_modules/node-libs-browser/node_modules/punycode/punycode.js] 1:0-47\
+     cjs require global [./node_modules/sockjs-client/dist/sockjs.js] 1:0-44\
+ [./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 497 bytes \{main\} [depth 5]\
+     cjs require module [./node_modules/node-libs-browser/node_modules/punycode/punycode.js] 1:0-47\
+ [./node_modules/webpack/hot sync ^\\.\\/log$] (webpack)/hot sync nonrecursive ^\\.\\/log$ 170 bytes \{main\} [depth 2]\
+     require.context webpack/hot [./node_modules/webpack-dev-server/client/index.js?http://localhost:8080] (webpack)-dev-server/client?http://localhost:8080 76:17-67\
+ [./node_modules/webpack/hot/emitter.js] (webpack)/hot/emitter.js 75 bytes \{main\} [depth 3]\
+     cjs require webpack/hot/emitter [./node_modules/webpack-dev-server/client/utils/reloadApp.js] (webpack)-dev-server/client/utils/reloadApp.js 21:21-51\
+ [./node_modules/webpack/hot/log.js] (webpack)/hot/log.js 1.34 KiB \{main\} [depth 3] [optional]\
+     context element ./log [./node_modules/webpack/hot sync ^\\.\\/log$] (webpack)/hot sync nonrecursive ^\\.\\/log$ ./log\
+ [./src/client/index.js] 327 bytes \{main\} [depth 1]\
+     [no exports]\
+     single entry ./src/client/index.js [0] multi (webpack)-dev-server/client?http://localhost:8080 ./src/client/index.js main[1]\
+     single entry ./src/client/index.js  main\
+ [./src/client/js/app.js] 9.95 KiB \{main\} [depth 2]\
+     [exports: onClick, performAction, createCard]\
+     harmony side effect evaluation ./js/app [./src/client/index.js] 10:0-36\
+     harmony side effect evaluation ./js/app [./src/client/index.js] 11:0-41\
+ [./src/client/styles/style.scss] 578 bytes \{main\} [depth 2]\
+     harmony side effect evaluation ./styles/style.scss [./src/client/index.js] 9:0-28\
+\
+LOG from webpack.buildChunkGraph.visitModules\
+<t> prepare: 0.175265ms\
+<t> visiting: 0.113067ms\
+\
+WARNING in GenerateSW has been called multiple times, perhaps due to running webpack in --watch mode. The precache manifest generated after the first call may be inaccurate! Please see https://github.com/GoogleChrome/workbox/issues/1790 for more information.\
+
+\f1 \uc0\u8505 
+\f0  
+\f2 \'a1\'b8
+\f0 wdm
+\f2 \'a1\'b9
+\f0 : Compiled with warnings.\
+
+\f1 \uc0\u8505 
+\f0  
+\f2 \'a1\'b8
+\f0 wdm
+\f2 \'a1\'b9
+\f0 : Compiling...\
+
+\f3 \uc0\u9888 
+\f0  
+\f2 \'a1\'b8
+\f0 wdm
+\f2 \'a1\'b9
+\f0 : Hash: b6c389ca360c16c23096\
+Version: webpack 4.44.1\
+Time: 886ms\
+Built at: 08/18/2020 10:09:45 PM\
+                  Asset      Size  Chunks             Chunk Names\
+                main.js   394 KiB    main             main\
+            main.js.map   454 KiB    main  [dev]      main\
+      service-worker.js  3.28 KiB          [emitted]  \
+  service-worker.js.map  1.66 KiB          [emitted]  \
+    workbox-64f1e998.js  67.7 KiB          [emitted]  \
+workbox-64f1e998.js.map   114 KiB          [emitted]  \
+Entrypoint main = main.js main.js.map\
+chunk \{main\} main.js, main.js.map (main) 374 KiB [entry]\
+    > main\
+ [0] multi (webpack)-dev-server/client?http://localhost:8080 ./src/client/index.js 40 bytes \{main\} [depth 0]\
+     multi entry \
+ [./node_modules/ansi-html/index.js] 4.16 KiB \{main\} [depth 3] [built]\
+     cjs require ansi-html [./node_modules/webpack-dev-server/client/overlay.js] (webpack)-dev-server/client/overlay.js 4:15-35\
+ [./node_modules/ansi-regex/index.js] 135 bytes \{main\} [depth 3]\
+     cjs require ansi-regex [./node_modules/strip-ansi/index.js] 2:16-37\
+ [./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/client/styles/style.scss] 22.9 KiB \{main\} [depth 3]\
+     [exports: default]\
+     cjs require !!../../../node_modules/css-loader/dist/cjs.js!../../../node_modules/sass-loader/dist/cjs.js!./style.scss [./src/client/styles/style.scss] 2:26-142\
+ [./node_modules/css-loader/dist/runtime/api.js] 2.46 KiB \{main\} [depth 4]\
+     harmony side effect evaluation ../../../node_modules/css-loader/dist/runtime/api.js [./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/client/styles/style.scss] 2:0-95\
+     harmony import specifier ../../../node_modules/css-loader/dist/runtime/api.js [./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/client/styles/style.scss] 3:30-57\
+ [./node_modules/events/events.js] 13.8 KiB \{main\} [depth 4]\
+     cjs require events [./node_modules/webpack/hot/emitter.js] (webpack)/hot/emitter.js 1:19-36\
+ [./node_modules/html-entities/lib/html4-entities.js] 6.59 KiB \{main\} [depth 4]\
+     cjs require ./html4-entities [./node_modules/html-entities/lib/index.js] 5:23-50\
+ [./node_modules/html-entities/lib/html5-entities.js] 47.9 KiB \{main\} [depth 4]\
+     cjs require ./html5-entities [./node_modules/html-entities/lib/index.js] 7:23-50\
+ [./node_modules/html-entities/lib/index.js] 449 bytes \{main\} [depth 3]\
+     cjs require html-entities [./node_modules/webpack-dev-server/client/overlay.js] (webpack)-dev-server/client/overlay.js 6:15-39\
+ [./node_modules/html-entities/lib/xml-entities.js] 2.96 KiB \{main\} [depth 4]\
+     cjs require ./xml-entities [./node_modules/html-entities/lib/index.js] 3:21-46\
+ [./node_modules/loglevel/lib/loglevel.js] 8.41 KiB \{main\} [depth 3]\
+     cjs require loglevel [./node_modules/webpack-dev-server/client/utils/log.js] (webpack)-dev-server/client/utils/log.js 3:10-29\
+ [./node_modules/node-libs-browser/node_modules/punycode/punycode.js] 14.3 KiB \{main\} [depth 4]\
+     cjs require punycode [./node_modules/url/url.js] 24:15-34\
+ [./node_modules/querystring-es3/decode.js] 2.45 KiB \{main\} [depth 5]\
+     cjs require ./decode [./node_modules/querystring-es3/index.js] 3:33-52\
+ [./node_modules/querystring-es3/encode.js] 2.48 KiB \{main\} [depth 5]\
+     cjs require ./encode [./node_modules/querystring-es3/index.js] 4:37-56\
+ [./node_modules/querystring-es3/index.js] 127 bytes \{main\} [depth 4]\
+     cjs require querystring [./node_modules/url/url.js] 100:18-40\
+ [./node_modules/sockjs-client/dist/sockjs.js] 181 KiB \{main\} [depth 4]\
+     cjs require sockjs-client/dist/sockjs [./node_modules/webpack-dev-server/client/clients/SockJSClient.js] (webpack)-dev-server/client/clients/SockJSClient.js 28:13-49\
+ [./node_modules/strip-ansi/index.js] 161 bytes \{main\} [depth 2]\
+     cjs require strip-ansi [./node_modules/webpack-dev-server/client/index.js?http://localhost:8080] (webpack)-dev-server/client?http://localhost:8080 6:16-37\
+ [./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js] 6.64 KiB \{main\} [depth 3]\
+     cjs require !../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js [./src/client/styles/style.scss] 1:10-97\
+ [./node_modules/url/url.js] 22.8 KiB \{main\} [depth 3]\
+     cjs require url [./node_modules/webpack-dev-server/client/utils/createSocketUrl.js] (webpack)-dev-server/client/utils/createSocketUrl.js 4:10-24\
+ [./node_modules/url/util.js] 314 bytes \{main\} [depth 4]\
+     cjs require ./util [./node_modules/url/url.js] 25:11-28\
+ [./node_modules/webpack-dev-server/client/clients/BaseClient.js] (webpack)-dev-server/client/clients/BaseClient.js 1.03 KiB \{main\} [depth 4]\
+     cjs require ./BaseClient [./node_modules/webpack-dev-server/client/clients/SockJSClient.js] (webpack)-dev-server/client/clients/SockJSClient.js 30:17-40\
+ [./node_modules/webpack-dev-server/client/clients/SockJSClient.js] (webpack)-dev-server/client/clients/SockJSClient.js 4.06 KiB \{main\} [depth 3]\
+     require.resolve ./SockJSClient [./node_modules/webpack-dev-server/client/clients/SockJSClient.js] (webpack)-dev-server/client/clients/SockJSClient.js 73:13-46\
+     cjs require __webpack_dev_server_client__ [./node_modules/webpack-dev-server/client/socket.js] (webpack)-dev-server/client/socket.js 1:0-116\
+     cjs require ./clients/SockJSClient [./node_modules/webpack-dev-server/client/socket.js] (webpack)-dev-server/client/socket.js 15:0-33\
+ [./node_modules/webpack-dev-server/client/index.js?http://localhost:8080] (webpack)-dev-server/client?http://localhost:8080 4.29 KiB \{main\} [depth 1]\
+     single entry /Users/3bady/Documents/KFUPM/Capstone_test/node_modules/webpack-dev-server/client/index.js?http://localhost:8080 [0] multi (webpack)-dev-server/client?http://localhost:8080 ./src/client/index.js main[0]\
+ [./node_modules/webpack-dev-server/client/overlay.js] (webpack)-dev-server/client/overlay.js 3.51 KiB \{main\} [depth 2]\
+     cjs require ./overlay [./node_modules/webpack-dev-server/client/index.js?http://localhost:8080] (webpack)-dev-server/client?http://localhost:8080 10:14-34\
+ [./node_modules/webpack-dev-server/client/socket.js] (webpack)-dev-server/client/socket.js 1.53 KiB \{main\} [depth 2]\
+     cjs require ./socket [./node_modules/webpack-dev-server/client/index.js?http://localhost:8080] (webpack)-dev-server/client?http://localhost:8080 8:13-32\
+ [./node_modules/webpack-dev-server/client/utils/createSocketUrl.js] (webpack)-dev-server/client/utils/createSocketUrl.js 2.91 KiB \{main\} [depth 2]\
+     cjs require ./utils/createSocketUrl [./node_modules/webpack-dev-server/client/index.js?http://localhost:8080] (webpack)-dev-server/client?http://localhost:8080 20:22-56\
+ [./node_modules/webpack-dev-server/client/utils/getCurrentScriptSource.js] (webpack)-dev-server/client/utils/getCurrentScriptSource.js 658 bytes \{main\} [depth 3]\
+     cjs require ./getCurrentScriptSource [./node_modules/webpack-dev-server/client/utils/createSocketUrl.js] (webpack)-dev-server/client/utils/createSocketUrl.js 6:29-64\
+ [./node_modules/webpack-dev-server/client/utils/log.js] (webpack)-dev-server/client/utils/log.js 964 bytes \{main\} [depth 2]\
+     cjs require ./utils/log [./node_modules/webpack-dev-server/client/index.js?http://localhost:8080] (webpack)-dev-server/client?http://localhost:8080 12:15-37\
+     cjs require ./log [./node_modules/webpack-dev-server/client/utils/reloadApp.js] (webpack)-dev-server/client/utils/reloadApp.js 4:15-31\
+ [./node_modules/webpack-dev-server/client/utils/reloadApp.js] (webpack)-dev-server/client/utils/reloadApp.js 1.59 KiB \{main\} [depth 2]\
+     cjs require ./utils/reloadApp [./node_modules/webpack-dev-server/client/index.js?http://localhost:8080] (webpack)-dev-server/client?http://localhost:8080 18:16-44\
+ [./node_modules/webpack-dev-server/client/utils/sendMessage.js] (webpack)-dev-server/client/utils/sendMessage.js 402 bytes \{main\} [depth 2]\
+     cjs require ./utils/sendMessage [./node_modules/webpack-dev-server/client/index.js?http://localhost:8080] (webpack)-dev-server/client?http://localhost:8080 16:18-48\
+ [./node_modules/webpack/buildin/global.js] (webpack)/buildin/global.js 472 bytes \{main\} [depth 5]\
+     cjs require global [./node_modules/node-libs-browser/node_modules/punycode/punycode.js] 1:0-47\
+     cjs require global [./node_modules/sockjs-client/dist/sockjs.js] 1:0-44\
+ [./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 497 bytes \{main\} [depth 5]\
+     cjs require module [./node_modules/node-libs-browser/node_modules/punycode/punycode.js] 1:0-47\
+ [./node_modules/webpack/hot sync ^\\.\\/log$] (webpack)/hot sync nonrecursive ^\\.\\/log$ 170 bytes \{main\} [depth 2]\
+     require.context webpack/hot [./node_modules/webpack-dev-server/client/index.js?http://localhost:8080] (webpack)-dev-server/client?http://localhost:8080 76:17-67\
+ [./node_modules/webpack/hot/emitter.js] (webpack)/hot/emitter.js 75 bytes \{main\} [depth 3]\
+     cjs require webpack/hot/emitter [./node_modules/webpack-dev-server/client/utils/reloadApp.js] (webpack)-dev-server/client/utils/reloadApp.js 21:21-51\
+ [./node_modules/webpack/hot/log.js] (webpack)/hot/log.js 1.34 KiB \{main\} [depth 3] [optional]\
+     context element ./log [./node_modules/webpack/hot sync ^\\.\\/log$] (webpack)/hot sync nonrecursive ^\\.\\/log$ ./log\
+ [./src/client/index.js] 327 bytes \{main\} [depth 1]\
+     [no exports]\
+     single entry ./src/client/index.js [0] multi (webpack)-dev-server/client?http://localhost:8080 ./src/client/index.js main[1]\
+     single entry ./src/client/index.js  main\
+ [./src/client/js/app.js] 9.95 KiB \{main\} [depth 2]\
+     [exports: onClick, performAction, createCard]\
+     harmony side effect evaluation ./js/app [./src/client/index.js] 10:0-36\
+     harmony side effect evaluation ./js/app [./src/client/index.js] 11:0-41\
+ [./src/client/styles/style.scss] 578 bytes \{main\} [depth 2]\
+     harmony side effect evaluation ./styles/style.scss [./src/client/index.js] 9:0-28\
+\
+LOG from webpack.buildChunkGraph.visitModules\
+<t> prepare: 0.188539ms\
+<t> visiting: 0.121661ms\
+\
+WARNING in GenerateSW has been called multiple times, perhaps due to running webpack in --watch mode. The precache manifest generated after the first call may be inaccurate! Please see https://github.com/GoogleChrome/workbox/issues/1790 for more information.\
+
+\f1 \uc0\u8505 
+\f0  
+\f2 \'a1\'b8
+\f0 wdm
+\f2 \'a1\'b9
+\f0 : Compiled with warnings.\
+
+\f1 \uc0\u8505 
+\f0  
+\f2 \'a1\'b8
+\f0 wdm
+\f2 \'a1\'b9
+\f0 : Compiling...\
+
+\f1 \uc0\u8505 
+\f0  
+\f2 \'a1\'b8
+\f0 wdm
+\f2 \'a1\'b9
+\f0 : wait until bundle finished: /main.js\
+
+\f3 \uc0\u9888 
+\f0  
+\f2 \'a1\'b8
+\f0 wdm
+\f2 \'a1\'b9
+\f0 : Hash: b6c389ca360c16c23096\
+Version: webpack 4.44.1\
+Time: 680ms\
+Built at: 08/18/2020 10:09:46 PM\
+                  Asset      Size  Chunks             Chunk Names\
+                main.js   394 KiB    main             main\
+            main.js.map   454 KiB    main  [dev]      main\
+      service-worker.js  3.28 KiB          [emitted]  \
+  service-worker.js.map  1.66 KiB          [emitted]  \
+    workbox-64f1e998.js  67.7 KiB          [emitted]  \
+workbox-64f1e998.js.map   114 KiB          [emitted]  \
+Entrypoint main = main.js main.js.map\
+chunk \{main\} main.js, main.js.map (main) 374 KiB [entry]\
+    > main\
+ [0] multi (webpack)-dev-server/client?http://localhost:8080 ./src/client/index.js 40 bytes \{main\} [depth 0]\
+     multi entry \
+ [./node_modules/ansi-html/index.js] 4.16 KiB \{main\} [depth 3]\
+     cjs require ansi-html [./node_modules/webpack-dev-server/client/overlay.js] (webpack)-dev-server/client/overlay.js 4:15-35\
+ [./node_modules/ansi-regex/index.js] 135 bytes \{main\} [depth 3]\
+     cjs require ansi-regex [./node_modules/strip-ansi/index.js] 2:16-37\
+ [./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/client/styles/style.scss] 22.9 KiB \{main\} [depth 3]\
+     [exports: default]\
+     cjs require !!../../../node_modules/css-loader/dist/cjs.js!../../../node_modules/sass-loader/dist/cjs.js!./style.scss [./src/client/styles/style.scss] 2:26-142\
+ [./node_modules/css-loader/dist/runtime/api.js] 2.46 KiB \{main\} [depth 4]\
+     harmony side effect evaluation ../../../node_modules/css-loader/dist/runtime/api.js [./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/client/styles/style.scss] 2:0-95\
+     harmony import specifier ../../../node_modules/css-loader/dist/runtime/api.js [./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/client/styles/style.scss] 3:30-57\
+ [./node_modules/events/events.js] 13.8 KiB \{main\} [depth 4] [built]\
+     cjs require events [./node_modules/webpack/hot/emitter.js] (webpack)/hot/emitter.js 1:19-36\
+ [./node_modules/html-entities/lib/html4-entities.js] 6.59 KiB \{main\} [depth 4]\
+     cjs require ./html4-entities [./node_modules/html-entities/lib/index.js] 5:23-50\
+ [./node_modules/html-entities/lib/html5-entities.js] 47.9 KiB \{main\} [depth 4]\
+     cjs require ./html5-entities [./node_modules/html-entities/lib/index.js] 7:23-50\
+ [./node_modules/html-entities/lib/index.js] 449 bytes \{main\} [depth 3]\
+     cjs require html-entities [./node_modules/webpack-dev-server/client/overlay.js] (webpack)-dev-server/client/overlay.js 6:15-39\
+ [./node_modules/html-entities/lib/xml-entities.js] 2.96 KiB \{main\} [depth 4]\
+     cjs require ./xml-entities [./node_modules/html-entities/lib/index.js] 3:21-46\
+ [./node_modules/loglevel/lib/loglevel.js] 8.41 KiB \{main\} [depth 3]\
+     cjs require loglevel [./node_modules/webpack-dev-server/client/utils/log.js] (webpack)-dev-server/client/utils/log.js 3:10-29\
+ [./node_modules/node-libs-browser/node_modules/punycode/punycode.js] 14.3 KiB \{main\} [depth 4]\
+     cjs require punycode [./node_modules/url/url.js] 24:15-34\
+ [./node_modules/querystring-es3/decode.js] 2.45 KiB \{main\} [depth 5]\
+     cjs require ./decode [./node_modules/querystring-es3/index.js] 3:33-52\
+ [./node_modules/querystring-es3/encode.js] 2.48 KiB \{main\} [depth 5]\
+     cjs require ./encode [./node_modules/querystring-es3/index.js] 4:37-56\
+ [./node_modules/querystring-es3/index.js] 127 bytes \{main\} [depth 4]\
+     cjs require querystring [./node_modules/url/url.js] 100:18-40\
+ [./node_modules/sockjs-client/dist/sockjs.js] 181 KiB \{main\} [depth 4]\
+     cjs require sockjs-client/dist/sockjs [./node_modules/webpack-dev-server/client/clients/SockJSClient.js] (webpack)-dev-server/client/clients/SockJSClient.js 28:13-49\
+ [./node_modules/strip-ansi/index.js] 161 bytes \{main\} [depth 2]\
+     cjs require strip-ansi [./node_modules/webpack-dev-server/client/index.js?http://localhost:8080] (webpack)-dev-server/client?http://localhost:8080 6:16-37\
+ [./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js] 6.64 KiB \{main\} [depth 3]\
+     cjs require !../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js [./src/client/styles/style.scss] 1:10-97\
+ [./node_modules/url/url.js] 22.8 KiB \{main\} [depth 3]\
+     cjs require url [./node_modules/webpack-dev-server/client/utils/createSocketUrl.js] (webpack)-dev-server/client/utils/createSocketUrl.js 4:10-24\
+ [./node_modules/url/util.js] 314 bytes \{main\} [depth 4]\
+     cjs require ./util [./node_modules/url/url.js] 25:11-28\
+ [./node_modules/webpack-dev-server/client/clients/BaseClient.js] (webpack)-dev-server/client/clients/BaseClient.js 1.03 KiB \{main\} [depth 4]\
+     cjs require ./BaseClient [./node_modules/webpack-dev-server/client/clients/SockJSClient.js] (webpack)-dev-server/client/clients/SockJSClient.js 30:17-40\
+ [./node_modules/webpack-dev-server/client/clients/SockJSClient.js] (webpack)-dev-server/client/clients/SockJSClient.js 4.06 KiB \{main\} [depth 3]\
+     require.resolve ./SockJSClient [./node_modules/webpack-dev-server/client/clients/SockJSClient.js] (webpack)-dev-server/client/clients/SockJSClient.js 73:13-46\
+     cjs require __webpack_dev_server_client__ [./node_modules/webpack-dev-server/client/socket.js] (webpack)-dev-server/client/socket.js 1:0-116\
+     cjs require ./clients/SockJSClient [./node_modules/webpack-dev-server/client/socket.js] (webpack)-dev-server/client/socket.js 15:0-33\
+ [./node_modules/webpack-dev-server/client/index.js?http://localhost:8080] (webpack)-dev-server/client?http://localhost:8080 4.29 KiB \{main\} [depth 1]\
+     single entry /Users/3bady/Documents/KFUPM/Capstone_test/node_modules/webpack-dev-server/client/index.js?http://localhost:8080 [0] multi (webpack)-dev-server/client?http://localhost:8080 ./src/client/index.js main[0]\
+ [./node_modules/webpack-dev-server/client/overlay.js] (webpack)-dev-server/client/overlay.js 3.51 KiB \{main\} [depth 2]\
+     cjs require ./overlay [./node_modules/webpack-dev-server/client/index.js?http://localhost:8080] (webpack)-dev-server/client?http://localhost:8080 10:14-34\
+ [./node_modules/webpack-dev-server/client/socket.js] (webpack)-dev-server/client/socket.js 1.53 KiB \{main\} [depth 2]\
+     cjs require ./socket [./node_modules/webpack-dev-server/client/index.js?http://localhost:8080] (webpack)-dev-server/client?http://localhost:8080 8:13-32\
+ [./node_modules/webpack-dev-server/client/utils/createSocketUrl.js] (webpack)-dev-server/client/utils/createSocketUrl.js 2.91 KiB \{main\} [depth 2]\
+     cjs require ./utils/createSocketUrl [./node_modules/webpack-dev-server/client/index.js?http://localhost:8080] (webpack)-dev-server/client?http://localhost:8080 20:22-56\
+ [./node_modules/webpack-dev-server/client/utils/getCurrentScriptSource.js] (webpack)-dev-server/client/utils/getCurrentScriptSource.js 658 bytes \{main\} [depth 3]\
+     cjs require ./getCurrentScriptSource [./node_modules/webpack-dev-server/client/utils/createSocketUrl.js] (webpack)-dev-server/client/utils/createSocketUrl.js 6:29-64\
+ [./node_modules/webpack-dev-server/client/utils/log.js] (webpack)-dev-server/client/utils/log.js 964 bytes \{main\} [depth 2]\
+     cjs require ./utils/log [./node_modules/webpack-dev-server/client/index.js?http://localhost:8080] (webpack)-dev-server/client?http://localhost:8080 12:15-37\
+     cjs require ./log [./node_modules/webpack-dev-server/client/utils/reloadApp.js] (webpack)-dev-server/client/utils/reloadApp.js 4:15-31\
+ [./node_modules/webpack-dev-server/client/utils/reloadApp.js] (webpack)-dev-server/client/utils/reloadApp.js 1.59 KiB \{main\} [depth 2]\
+     cjs require ./utils/reloadApp [./node_modules/webpack-dev-server/client/index.js?http://localhost:8080] (webpack)-dev-server/client?http://localhost:8080 18:16-44\
+ [./node_modules/webpack-dev-server/client/utils/sendMessage.js] (webpack)-dev-server/client/utils/sendMessage.js 402 bytes \{main\} [depth 2]\
+     cjs require ./utils/sendMessage [./node_modules/webpack-dev-server/client/index.js?http://localhost:8080] (webpack)-dev-server/client?http://localhost:8080 16:18-48\
+ [./node_modules/webpack/buildin/global.js] (webpack)/buildin/global.js 472 bytes \{main\} [depth 5]\
+     cjs require global [./node_modules/node-libs-browser/node_modules/punycode/punycode.js] 1:0-47\
+     cjs require global [./node_modules/sockjs-client/dist/sockjs.js] 1:0-44\
+ [./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 497 bytes \{main\} [depth 5]\
+     cjs require module [./node_modules/node-libs-browser/node_modules/punycode/punycode.js] 1:0-47\
+ [./node_modules/webpack/hot sync ^\\.\\/log$] (webpack)/hot sync nonrecursive ^\\.\\/log$ 170 bytes \{main\} [depth 2]\
+     require.context webpack/hot [./node_modules/webpack-dev-server/client/index.js?http://localhost:8080] (webpack)-dev-server/client?http://localhost:8080 76:17-67\
+ [./node_modules/webpack/hot/emitter.js] (webpack)/hot/emitter.js 75 bytes \{main\} [depth 3]\
+     cjs require webpack/hot/emitter [./node_modules/webpack-dev-server/client/utils/reloadApp.js] (webpack)-dev-server/client/utils/reloadApp.js 21:21-51\
+ [./node_modules/webpack/hot/log.js] (webpack)/hot/log.js 1.34 KiB \{main\} [depth 3] [optional]\
+     context element ./log [./node_modules/webpack/hot sync ^\\.\\/log$] (webpack)/hot sync nonrecursive ^\\.\\/log$ ./log\
+ [./src/client/index.js] 327 bytes \{main\} [depth 1]\
+     [no exports]\
+     single entry ./src/client/index.js [0] multi (webpack)-dev-server/client?http://localhost:8080 ./src/client/index.js main[1]\
+     single entry ./src/client/index.js  main\
+ [./src/client/js/app.js] 9.95 KiB \{main\} [depth 2]\
+     [exports: onClick, performAction, createCard]\
+     harmony side effect evaluation ./js/app [./src/client/index.js] 10:0-36\
+     harmony side effect evaluation ./js/app [./src/client/index.js] 11:0-41\
+ [./src/client/styles/style.scss] 578 bytes \{main\} [depth 2]\
+     harmony side effect evaluation ./styles/style.scss [./src/client/index.js] 9:0-28\
+\
+LOG from webpack.buildChunkGraph.visitModules\
+<t> prepare: 0.259277ms\
+<t> visiting: 0.163098ms\
+\
+WARNING in GenerateSW has been called multiple times, perhaps due to running webpack in --watch mode. The precache manifest generated after the first call may be inaccurate! Please see https://github.com/GoogleChrome/workbox/issues/1790 for more information.\
+
+\f1 \uc0\u8505 
+\f0  
+\f2 \'a1\'b8
+\f0 wdm
+\f2 \'a1\'b9
+\f0 : Compiled with warnings.\
+}
