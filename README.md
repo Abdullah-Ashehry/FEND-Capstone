@@ -17,3 +17,12 @@ Pull in an image for the country from Pixabay API when the entered location brin
 Add end date and display length of trip.
 Integrate the REST Countries API to pull in data for the country being visited.
 
+## Notes:
+# For production
+npm i
+npm run build
+npm run start
+# For dev
+npm i
+npm run start
+npm run dev
